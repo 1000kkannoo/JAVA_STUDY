@@ -6,8 +6,34 @@ public class Student {
     String studentName;
     String studentAddress;
 
+    // 기본 생성자, 작성하지 않아도 컴파일러 단계에서 만들어줌
+    // 클래스에 하나도 생성자가 없을 경우에만 생김
+    // public Student() {}
+
+    /*  this없이 생성자 만들기
+        public Student(int id, String name){
+        studentId = id;
+        studentName = name;
+    }
+     */
+
+    // 이름은 같고 매개변수가 다른, 하나 이상의 메서드가 있는 것을 오버로딩이라고함.
+    // 생성자도 오버로딩이 가능함
+    public Student() {}
+
+    public Student(int studentId, String studentName) {
+        this.studentId = studentId;
+        this.studentName = studentName;
+    }
+
+    public Student(int studentId, String studentName, String studentAddress) {
+        this.studentId = studentId;
+        this.studentName = studentName;
+        this.studentAddress = studentAddress;
+    }
+
     public void showStudentInfo() {
-        System.out.println(studentName + ", " + studentAddress);
+        System.out.println(studentId + ", " + studentName + ", " + studentAddress);
     }
 
     public String getStudentName() {
