@@ -4,7 +4,7 @@ public class GenericPrinter<T> {
 
     private T material;
 
-    public void serMaterial(T material) {
+    public void setMaterial(T material) {
         this.material = material;
     }
 

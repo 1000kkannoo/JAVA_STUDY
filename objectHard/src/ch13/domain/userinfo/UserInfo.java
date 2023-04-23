@@ -6,6 +6,13 @@ public class UserInfo {
     private String passwd;
     private String userName;
 
+    public UserInfo() {}
+    public UserInfo(String userId, String passwd, String userName) {
+        this.userId = userId;
+        this.passwd = passwd;
+        this.userName = userName;
+    }
+
     public String getUserId() {
         return userId;
     }

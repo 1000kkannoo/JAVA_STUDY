@@ -10,9 +10,19 @@ public class CustomerTest {
         System.out.println(customerLee.showCustomerInfo());
 
         VIPCustomer customerKim = new VIPCustomer();
-        customerLee.setCustomerName("김유신");
-        customerLee.setCustomerId(10020);
-        customerLee.bonusPoint = 10000;
-        System.out.println(customerLee.showCustomerInfo());
+        customerKim.setCustomerName("김유신");
+        customerKim.setCustomerId(10020);
+        customerKim.bonusPoint = 10000;
+        System.out.println(customerKim.showCustomerInfo());
+        customerKim.checkMyAgentId();
+        customerKim.changeAgentId(12);
+        customerKim.checkMyAgentId();
+
+        VIPCustomer customerPark = new VIPCustomer();
+        customerPark.setCustomerName("박지성");
+        customerPark.setCustomerId(10030);
+        customerPark.bonusPoint = 5000;
+        System.out.println(customerPark.showCustomerInfo());
+        customerPark.checkMyAgentId();
     }
 }

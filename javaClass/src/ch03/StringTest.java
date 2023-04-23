@@ -8,6 +8,7 @@ public class StringTest {
 
         System.out.println(str1 == str2); // false
 
+        // 상수풀에 있는 것들의 주소를 가리키게 함
         String str3 = "abc";
         String str4 = "abc";
 

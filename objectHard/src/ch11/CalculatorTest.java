@@ -14,5 +14,12 @@ public class CalculatorTest {
         System.out.println(num1 + "-" + num2 + "=" + calc.substract(num1,num2));
         System.out.println(num1 + "*" + num2 + "=" + calc.times(num1,num2));
         System.out.println(num1 + "/" + num2 + "=" + calc.divide(num1,num2));
+
+        System.out.println("=================");
+
+        System.out.println(num1 + "+" + num2 + "=" + calc2.add(num1,num2));
+        System.out.println(num1 + "-" + num2 + "=" + calc2.substract(num1,num2));
+        System.out.println(num1 + "*" + num2 + "=" + calc2.times(num1,num2));
+        System.out.println(num1 + "/" + num2 + "=" + calc2.divide(num1,num2));
     }
 }

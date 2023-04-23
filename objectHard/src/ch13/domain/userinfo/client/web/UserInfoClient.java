@@ -19,10 +19,7 @@ public class UserInfoClient {
         String dbType = prop.getProperty("DBTYPE");
         System.out.println(dbType);
 
-        UserInfo userInfo = new UserInfo();
-        userInfo.setUserId("user01");
-        userInfo.setUserName("하이룽");
-        userInfo.setPasswd("aksdjasdl12345");
+        UserInfo userInfo = new UserInfo("user01", "하이룽", "sakdask1234");
 
         UserInfoDao userInfoDao = null;
 

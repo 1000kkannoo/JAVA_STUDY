@@ -6,6 +6,7 @@ import java.util.Iterator;
 public class MemberArrayList {
 
     private ArrayList<Member> arrayList;
+
     public MemberArrayList() {
         arrayList = new ArrayList<>();
     }
@@ -39,8 +40,7 @@ public class MemberArrayList {
 
     // 해당 메소드는 Iterator 로도 출력 가능
     public void showAllMembers() {
-        for (int i = 0; i < arrayList.size() ; i++) {
-            Member member = arrayList.get(i);
+        for (Member member : arrayList) {
             System.out.println(member);
         }
     }

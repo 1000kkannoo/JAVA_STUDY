@@ -14,9 +14,10 @@ public class MemberArrayListTest {
         memberArrayList.addMember(memberKang);
         memberArrayList.addMember(memberKim);
         memberArrayList.addMember(memberHong);
-
         memberArrayList.showAllMembers();
+
         System.out.println("================");
+
         memberArrayList.removeMember(memberHong.getMemberId());
         memberArrayList.showAllMembers();
     }
