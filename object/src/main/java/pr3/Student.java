@@ -7,10 +7,10 @@ public class Student {
     int studentId;
     String studentName;
 
-    ArrayList<Subject> subjects = new ArrayList<Subject>();
+    ArrayList<Subject> subjects = new ArrayList<>();
 
     public Student(int studentId, String studentName) {
-        this.studentId =studentId;
+        this.studentId = studentId;
         this.studentName = studentName;
     }
 
@@ -24,7 +24,7 @@ public class Student {
 
     public void showStudentInfo() {
         int total = 0;
-        for(Subject s : subjects){
+        for (Subject s : subjects) {
             total += s.getScorePoint();
             System.out.println(studentName + "학생의 " + s.getName() + "과목 성적은 " + s.getScorePoint() + "입니다. ");
         }

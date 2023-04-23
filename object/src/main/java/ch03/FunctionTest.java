@@ -14,6 +14,11 @@ public class FunctionTest {
         System.out.println(sum);
     }
 
+    // main 이 public static 으로 선언되었기에 static 메서드로 함수를 정의
+    // static 은 프로그램이 실행될때 클래스 영역에 메모리를 저장
+    // 즉, 해당 영역에서만 사용이 가능하므로 다른 메모리에 저장되는 것들은 사용하지 못하기 때문에
+    // 메서드 또한 static 으로 선언되어야 한다.
+
     public static int addNum(int num1, int num2) {
         return num1 + num2;
     }

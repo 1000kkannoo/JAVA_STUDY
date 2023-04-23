@@ -15,14 +15,16 @@ public class Person {
     }
 
     public Person getPerson() {
-        return this;
+        return this; // address 를 가리킴
     }
 
     public static void main(String[] args) {
         Person person = new Person();
-        System.out.println(person.name);
-        System.out.println(person.age);
+        Person person1 = new Person("잭 그릴리쉬",27);
+        System.out.println(person1.name);
+        System.out.println(person1.age);
 
         System.out.println(person.getPerson());
+        System.out.println(person1.getPerson());
     }
 }

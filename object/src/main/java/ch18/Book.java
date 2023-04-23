@@ -5,7 +5,10 @@ public class Book {
     private String title;
     private String author;
 
-    public Book() {}
+    public Book() {
+        this.title = "기본책입니다.";
+        this.author = "기본이름입니다.";
+    }
     public Book(String title, String author) {
         this.title = title;
         this.author = author;

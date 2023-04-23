@@ -15,7 +15,6 @@ public class Employee {
     }
 
     public static int getSerialNum() {
-        int i = 0;
         return serialNum;
     }
 

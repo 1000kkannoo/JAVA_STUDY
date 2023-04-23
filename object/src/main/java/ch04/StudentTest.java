@@ -12,6 +12,8 @@ public class StudentTest {
 
         studentLee.showStudentInfo();
         studentKim.showStudentInfo();
+        // 같은 메서드이지만 오버로딩으로 인해 다르게 동작 !
+        studentKim.showStudentInfo("저는 뉴욕에 살고있습니다.");
 
         System.out.println(studentLee);
         System.out.println(studentKim);

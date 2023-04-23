@@ -16,7 +16,9 @@ public class ConditionTest {
         System.out.println("input2 : ");
         int y = Integer.parseInt(br.readLine());
 
-        max = (x > y) ? x : y;
+        max = (x >= y) ? x : y; // Math 클래스에서도 이와같이 되어있다.
+        int max2 = Math.max(x,y);
         System.out.println(max);
+        System.out.println(max2);
     }
 }

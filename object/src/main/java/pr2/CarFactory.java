@@ -14,7 +14,6 @@ public class CarFactory {
     }
 
     public Car createCar() {
-        Car car = new Car();
-        return car;
+        return new Car();
     }
 }

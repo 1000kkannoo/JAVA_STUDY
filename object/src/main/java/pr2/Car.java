@@ -12,4 +12,8 @@ public class Car {
     public int getCarNum() {
         return carNum;
     }
+
+    public static void checkSerialNum() {
+        System.out.println("현재 Serial Number : " + serialNum);
+    }
 }

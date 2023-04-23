@@ -11,6 +11,7 @@ public class DoWhileTest {
         int input;
         int sum = 0;
 
+        // do while 문은 먼저 do를 실행하고 반복을 돈다.
         do {
             System.out.print("num: ");
             input = Integer.parseInt(br.readLine());

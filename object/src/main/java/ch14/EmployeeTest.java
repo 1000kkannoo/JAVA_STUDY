@@ -13,5 +13,10 @@ public class EmployeeTest {
         System.out.println(employeeLee.getEmployeeId());
         System.out.println(employeeKim.getEmployeeId());
         System.out.println(Employee.getSerialNum());
+
+        // 참조변수를 통해 클래스 static method 로 클래스 변수의 값을 변경
+        // employeeKim.setSerialNum(101);
+        // System.out.println(Employee.getSerialNum());
+
     }
 }
