@@ -1,0 +1,4 @@
+4월 24, 2023 1:06:20 오후 ch04.MyLogger warning
+WARNING: name must not be null
+4월 24, 2023 1:06:20 오후 ch04.MyLogger warning
+WARNING: name is to long
