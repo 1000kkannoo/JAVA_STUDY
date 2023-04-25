@@ -2,7 +2,7 @@
 // 이진 탐색을 활용하면 매번 비교되는 요소의 수가 절반으로 감소되므로 O(logN)의 수행으로
 // 원하는 수를 찾을 수 있음
 // ! 정렬된 수이기에 가능
-public class pr2 {
+public class TreeSearch {
     public static void main(String[] args) {
         int[] numbers = {12, 25, 31, 48, 54, 66, 70, 83, 95, 108};
 

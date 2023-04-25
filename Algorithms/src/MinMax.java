@@ -1,5 +1,5 @@
 // 나열된 수에서 최솟값과 최댓값 구하기
-public class pr1 {
+public class MinMax {
 
     public static void main(String[] args) {
         int[] numbers = {10, 55, 23, 2, 79, 101, 16, 82, 30, 45};
