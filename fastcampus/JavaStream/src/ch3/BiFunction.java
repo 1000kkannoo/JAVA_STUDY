@@ -1,10 +1,8 @@
 package ch3;
 
-import java.util.function.BiFunction;
-
-public class ch3s3 {
+public class BiFunction {
     public static void main(String[] args) {
-        BiFunction<Integer, Integer, Integer> add = (x, y) -> x + y;
+        java.util.function.BiFunction<Integer, Integer, Integer> add = (x, y) -> x + y;
         int result = add.apply(3, 5);
         System.out.println(result);
     }

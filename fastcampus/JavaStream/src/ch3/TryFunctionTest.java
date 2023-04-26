@@ -2,7 +2,7 @@ package ch3;
 
 import util.TryFunction;
 
-public class ch3s4 {
+public class TryFunctionTest {
     public static void main(String[] args) {
         TryFunction<Integer,Integer,Integer,Integer> addThreeNumbers =
                 (x, y, z) ->  x + y + z;
