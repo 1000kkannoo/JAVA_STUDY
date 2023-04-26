@@ -1,4 +1,4 @@
-package ch6.filter;
+package ch8.model;
 
 import java.math.BigDecimal;
 

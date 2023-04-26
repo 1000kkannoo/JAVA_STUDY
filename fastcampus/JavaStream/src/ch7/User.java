@@ -1,24 +1,14 @@
-package ch6.filter;
+package ch7;
 
-import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 public class User {
     private int id;
     private String name;
     private String emailAddress;
     private boolean isVerified;
-    private LocalDateTime createdAt;
     private List<Integer> friendUserIds;
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public User setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-        return this;
-    }
 
     public int getId() {
         return id;
@@ -38,8 +28,8 @@ public class User {
         return this;
     }
 
-    public String getEmailAddress() {
-        return emailAddress;
+    public Optional<String> getEmailAddress() {
+        return Optional.ofNullable(emailAddress);
     }
 
     public User setEmailAddress(String emailAddress) {
