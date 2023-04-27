@@ -1,7 +1,10 @@
 package ch8;
 
+import ch8.model.Order;
+import ch8.model.OrderLine;
 import ch8.model.User;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
@@ -33,7 +36,7 @@ public class ReduceStream {
         Integer sumOfNumberStrList2 = numberStrList.stream()
                 .reduce(0, (number, str) ->
                         number + Integer.parseInt(str), (num1, num2) -> num1 + num2);
-        System.out.println(sumOfNumberStrList2);
+        System.out.println("sumOfNumberStrList2 : " + sumOfNumberStrList2);
 
         User user1 = new User()
                 .setId(101)
@@ -61,6 +64,38 @@ public class ReduceStream {
                 .reduce(0, (x, y) -> x + y);
         System.out.println("sumOfNumberOfFriends : " + sumOfNumberOfFriends);
 
-        // TODO
+        Order order1 = new Order()
+                .setId(1001L)
+                .setOrderLines(Arrays.asList(
+                        new OrderLine()
+                                .setAmount(BigDecimal.valueOf(1000)),
+                        new OrderLine()
+                                .setAmount(BigDecimal.valueOf(2000))));
+        Order order2 = new Order()
+                .setId(1002L)
+                .setOrderLines(Arrays.asList(
+                        new OrderLine()
+                                .setAmount(BigDecimal.valueOf(2000)),
+                        new OrderLine()
+                                .setAmount(BigDecimal.valueOf(3000))));
+        Order order3 = new Order()
+                .setId(1002L)
+                .setOrderLines(Arrays.asList(
+                        new OrderLine()
+                                .setAmount(BigDecimal.valueOf(1000)),
+                        new OrderLine()
+                                .setAmount(BigDecimal.valueOf(2000))));
+
+        List<Order> orders = Arrays.asList(order1, order2, order3);
+
+        // TODO : Amount의 총합을 구하세요!
+        BigDecimal sumOfOrderAmount = orders.stream()
+                .map(Order::getOrderLines) // Stream<List<OrderLine>>
+                .flatMap(List::stream) // Stream(OrderLine)
+                .map(orderLine -> orderLine.getAmount()) // Stream<BigDecimal>
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        System.out.println("sumOfOrderAmount : " + sumOfOrderAmount);
+
     }
 }
