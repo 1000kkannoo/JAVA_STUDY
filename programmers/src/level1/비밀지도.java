@@ -34,5 +34,20 @@ public class 비밀지도 {
         }
 
         return answer;
+
+/*      비트연산이용
+
+        String[] result = new String[n];
+        for (int i = 0; i < n; i++) {
+            result[i] = Integer.toBinaryString(arr1[i] | arr2[i]);
+        }
+
+        for (int i = 0; i < n; i++) {
+            result[i] = String.format("%" + n + "s", result[i]);
+            result[i] = result[i].replaceAll("1", "#");
+            result[i] = result[i].replaceAll("0", " ");
+        }
+
+        return result;*/
     }
 }
