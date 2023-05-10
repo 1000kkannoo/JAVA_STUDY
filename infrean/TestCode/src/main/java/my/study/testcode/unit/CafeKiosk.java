@@ -12,8 +12,8 @@ import java.util.List;
 
 @Getter
 public class CafeKiosk {
-
     public static final LocalTime SHOP_OPEN_TIME = LocalTime.of(10,0);
+
     public static final LocalTime SHOP_CLOSE_TIME = LocalTime.of(22,0);
 
     private final List<Beverage> beverages = new ArrayList<>();
@@ -31,20 +31,18 @@ public class CafeKiosk {
         }
     }
 
+    public int calculateTotalPrice() {
+        return beverages.stream()
+                .mapToInt(Beverage::getPrice)
+                .sum();
+    }
+
     public void remove(Beverage beverage) {
         beverages.remove(beverage);
     }
 
     public void clear() {
         beverages.clear();
-    }
-
-    public int calculateTotalPrice() {
-        int totalPrice = 0;
-        for (Beverage beverage : beverages) {
-            totalPrice += beverage.getPrice();
-        }
-        return totalPrice;
     }
 
     public Order createOrder(LocalDateTime currentDateTime) {
