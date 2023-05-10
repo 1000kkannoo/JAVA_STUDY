@@ -45,7 +45,7 @@ class ProductRepositoryTest {
                 .price(4500)
                 .build();
 
-        Product prodcut3 = Product.builder()
+        Product product3 = Product.builder()
                 .productNumber("003")
                 .type(HANDMADE)
                 .sellingStatus(STOP_SELLING)
@@ -53,7 +53,7 @@ class ProductRepositoryTest {
                 .price(7000)
                 .build();
 
-        productRepository.saveAll(List.of(product1, product2, prodcut3));
+        productRepository.saveAll(List.of(product1, product2, product3));
 
         // when
         List<Product> products = productRepository.findAllBySellingStatusIn(List.of(SELLING, HOLD));
@@ -87,7 +87,7 @@ class ProductRepositoryTest {
                 .price(4500)
                 .build();
 
-        Product prodcut3 = Product.builder()
+        Product product3 = Product.builder()
                 .productNumber("003")
                 .type(HANDMADE)
                 .sellingStatus(STOP_SELLING)
@@ -95,10 +95,10 @@ class ProductRepositoryTest {
                 .price(7000)
                 .build();
 
-        productRepository.saveAll(List.of(product1, product2, prodcut3));
+        productRepository.saveAll(List.of(product1, product2, product3));
 
         // when
-        List<Product> products = productRepository.findAllByProductNumberIn(List.of("001","002"));
+        List<Product> products = productRepository.findAllByProductNumberIn(List.of("001", "002"));
 
         // then
         assertThat(products).hasSize(2)
