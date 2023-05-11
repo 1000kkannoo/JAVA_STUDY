@@ -3,6 +3,7 @@ package my.study.testcode.spring.domain.order;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import my.study.testcode.spring.domain.BaseEntity;
 import my.study.testcode.spring.domain.orderproduct.OrderProduct;
 import my.study.testcode.spring.domain.product.Product;
@@ -24,6 +25,7 @@ public class Order extends BaseEntity {
     private Long id;
 
     @Enumerated(EnumType.STRING)
+    @Setter
     private OrderStatus orderStatus;
 
     private int totalPrice;
