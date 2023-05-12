@@ -40,7 +40,7 @@ class OrderRepositoryTest {
         Product product2 = createProduct("002", HANDMADE, SELLING, "아메리카노", 4000);
         productRepository.saveAll(List.of(product1, product2));
 
-        List<Product> products = List.of(product1,product2);
+        List<Product> products = List.of(product1, product2);
         List<Product> products2 = List.of(product1);
 
         Order order1 = Order.create(products, LocalDateTime.now());

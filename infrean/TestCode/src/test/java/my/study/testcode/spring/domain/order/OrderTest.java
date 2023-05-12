@@ -18,13 +18,14 @@ class OrderTest {
     @Test
     void calculateTotalPrice() {
         // given
+        LocalDateTime registeredDateTime = LocalDateTime.now();
         List<Product> products = List.of(
                 createProduct("001", 1000),
                 createProduct("002", 3000)
         );
 
         // when
-        Order order = Order.create(products, LocalDateTime.now());
+        Order order = Order.create(products, registeredDateTime);
 
         // then
         assertThat(order.getTotalPrice()).isEqualTo(4000);
