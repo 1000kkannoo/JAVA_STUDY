@@ -1,24 +1,22 @@
 package my.study.testcode.spring.domain.product;
 
+import my.study.testcode.spring.IntegrationTestSupport;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.ActiveProfiles;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 import static my.study.testcode.spring.domain.product.ProductSellingStatus.*;
-import static my.study.testcode.spring.domain.product.ProductType.*;
+import static my.study.testcode.spring.domain.product.ProductType.HANDMADE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.tuple;
 
 // Persistence Layer 테스트
-
-@ActiveProfiles("test")
-// @SpringBootTest -> springBoot 환경에서 테스트
-@DataJpaTest // springBootTest 보다 가벼움 -> JPA 관련된것만
-class ProductRepositoryTest {
+// @DataJpaTest // springBootTest 보다 가벼움 -> JPA 관련된것만
+@Transactional
+class ProductRepositoryTest extends IntegrationTestSupport {
 
     @Autowired
     private ProductRepository productRepository;

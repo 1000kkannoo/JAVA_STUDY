@@ -1,7 +1,6 @@
 package my.study.testcode.spring.api.service.product;
 
 import lombok.RequiredArgsConstructor;
-import my.study.testcode.spring.api.controller.product.request.ProductCreateRequest;
 import my.study.testcode.spring.api.service.product.response.ProductResponse;
 import my.study.testcode.spring.api.service.request.ProductCreateServiceRequest;
 import my.study.testcode.spring.domain.product.Product;
@@ -26,12 +25,13 @@ import java.util.stream.Collectors;
 public class ProductService {
 
     private final ProductRepository productRepository;
+    private final ProductNumberFactory productNumberFactory;
 
     // 동시성 이슈
     // UUID 를 사용해 유니크하게 해결 할 수도 있다 !
     @Transactional
     public ProductResponse createProduct(ProductCreateServiceRequest request) {
-        String nextProductNumber = createNextProductNumber();
+        String nextProductNumber = productNumberFactory.createNextProductNumber();
 
         Product savedProduct = request.toEntity(nextProductNumber);
         productRepository.save(savedProduct);
@@ -44,18 +44,5 @@ public class ProductService {
         return products.stream()
                 .map(ProductResponse::of)
                 .collect(Collectors.toList());
-    }
-
-    private String createNextProductNumber() {
-        String latestProductNumber = productRepository.findLatestProduct();
-
-        if (latestProductNumber == null) {
-            return "001";
-        }
-
-        int latestProductNumberInt = Integer.parseInt(latestProductNumber);
-        int nextProductNumberInt = latestProductNumberInt + 1;
-        // 9 -> 009 10 -> 010
-        return String.format("%03d", nextProductNumberInt);
     }
 }

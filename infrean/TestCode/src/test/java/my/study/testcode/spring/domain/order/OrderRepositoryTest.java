@@ -1,30 +1,26 @@
 package my.study.testcode.spring.domain.order;
 
+import my.study.testcode.spring.IntegrationTestSupport;
 import my.study.testcode.spring.domain.product.Product;
 import my.study.testcode.spring.domain.product.ProductRepository;
 import my.study.testcode.spring.domain.product.ProductSellingStatus;
 import my.study.testcode.spring.domain.product.ProductType;
-import org.aspectj.weaver.ast.Or;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.ActiveProfiles;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static my.study.testcode.spring.domain.order.OrderStatus.*;
+import static my.study.testcode.spring.domain.order.OrderStatus.PAYMENT_COMPLETED;
+import static my.study.testcode.spring.domain.order.OrderStatus.PAYMENT_FAILED;
 import static my.study.testcode.spring.domain.product.ProductSellingStatus.SELLING;
 import static my.study.testcode.spring.domain.product.ProductType.HANDMADE;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.tuple;
-import static org.junit.jupiter.api.Assertions.*;
 
-@ActiveProfiles("test")
-@DataJpaTest
-class OrderRepositoryTest {
+@Transactional
+class OrderRepositoryTest extends IntegrationTestSupport {
 
     @Autowired
     private OrderRepository orderRepository;
@@ -43,13 +39,15 @@ class OrderRepositoryTest {
         List<Product> products = List.of(product1, product2);
         List<Product> products2 = List.of(product1);
 
-        Order order1 = Order.create(products, LocalDateTime.now());
+        LocalDateTime now = LocalDateTime.of(2023,5,11,15,23,52);
+
+        Order order1 = Order.create(products, now);
         order1.setOrderStatus(PAYMENT_COMPLETED);
 
-        Order order2 = Order.create(products, LocalDateTime.now());
+        Order order2 = Order.create(products, now);
         order2.setOrderStatus(PAYMENT_FAILED);
 
-        Order order3 = Order.create(products2, LocalDateTime.now());
+        Order order3 = Order.create(products2, now);
         order3.setOrderStatus(PAYMENT_COMPLETED);
 
         orderRepository.saveAll(List.of(order1, order2, order3));

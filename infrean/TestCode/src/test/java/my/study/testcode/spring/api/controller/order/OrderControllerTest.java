@@ -1,40 +1,19 @@
 package my.study.testcode.spring.api.controller.order;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import my.study.testcode.spring.ControllerTestSupport;
 import my.study.testcode.spring.api.controller.order.request.OrderCreateRequest;
-import my.study.testcode.spring.api.controller.product.request.ProductCreateRequest;
-import my.study.testcode.spring.api.service.order.OrderService;
-import my.study.testcode.spring.domain.product.Product;
-import my.study.testcode.spring.domain.product.ProductSellingStatus;
-import my.study.testcode.spring.domain.product.ProductType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.List;
 
-import static my.study.testcode.spring.domain.product.ProductSellingStatus.SELLING;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(controllers = OrderController.class)
-class OrderControllerTest {
-
-    @Autowired
-    private MockMvc mockMvc;
-
-    @Autowired
-    private ObjectMapper objectMapper;
-
-    @MockBean
-    private OrderService orderService;
+class OrderControllerTest extends ControllerTestSupport {
 
     @DisplayName("신규 주문을 등록한다.")
     @Test
