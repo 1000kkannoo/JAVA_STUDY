@@ -1,9 +1,12 @@
 package study.project;
 
+import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.QueryResults;
 import com.querydsl.core.Tuple;
 import com.querydsl.core.types.ExpressionUtils;
+import com.querydsl.core.types.Predicate;
 import com.querydsl.core.types.Projections;
+import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.types.dsl.CaseBuilder;
 import com.querydsl.core.types.dsl.Expressions;
 import com.querydsl.jpa.JPAExpressions;
@@ -33,6 +36,7 @@ import java.util.List;
 import static com.querydsl.jpa.JPAExpressions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.from;
+import static org.assertj.core.api.InstanceOfAssertFactories.map;
 import static org.assertj.core.api.InstanceOfAssertFactories.type;
 import static study.project.entity.QMember.*;
 import static study.project.entity.QTeam.*;
@@ -599,5 +603,112 @@ public class QueryDslBasicTest {
         for (MemberDto memberDto : result) {
             System.out.println("memberDto = " + memberDto);
         }
+    }
+
+    // distinct 도 동일하게 사용 가능
+
+    @Test
+    void dynamicQuery_BooleanBuilder() {
+        String usernameParam = "member1";
+        Integer ageParam = 10;
+
+        List<Member> result = searchMember1(usernameParam, ageParam);
+        assertThat(result.size()).isEqualTo(1);
+    }
+
+    private List<Member> searchMember1(String usernameCondition, Integer ageCondition) {
+        BooleanBuilder builder = new BooleanBuilder();
+
+        if (usernameCondition != null) {
+            builder.and(member.username.eq(usernameCondition));
+        }
+
+        if (ageCondition != null) {
+            builder.and(member.age.eq(ageCondition));
+        }
+
+        return queryFactory
+                .selectFrom(member)
+                .where(builder)
+                .fetch();
+    }
+
+    @Test
+    void dynamicQuery_WhereParam() {
+        String usernameParam = "member1";
+        Integer ageParam = 10;
+
+        List<Member> result = searchMember2(usernameParam, ageParam);
+        assertThat(result.size()).isEqualTo(1);
+    }
+
+    private List<Member> searchMember2(String usernameCondition, Integer ageCondition) {
+        return queryFactory
+                .selectFrom(member)
+                .where(usernameEq(usernameCondition), ageEq(ageCondition))
+//                .where(allEq(usernameCondition, ageCondition))
+                .fetch();
+    }
+
+    private BooleanExpression usernameEq(String usernameCondition) {
+        return (usernameCondition != null) ? member.username.eq(usernameCondition) : null;
+    }
+
+    private BooleanExpression ageEq(Integer ageCondition) {
+        return (ageCondition != null) ? member.age.eq(ageCondition) : null;
+    }
+
+    private BooleanExpression allEq(String usernameCondition, Integer ageCondition) {
+        return usernameEq(usernameCondition).and(ageEq(ageCondition));
+    }
+
+    @Test
+    void bulkUpdate() {
+        // member1 = 10 -> DB : member1
+        // member2 = 20 -> DB : member2
+        // member3 = 40 -> DB : member3
+        // member4 = 50 -> DB : member4
+
+        long count = queryFactory
+                .update(member)
+                .set(member.username, "비회원")
+                .where(member.age.lt(28))
+                .execute();
+
+        /**
+         * 벌크 연산시 영속성 컨텍스트 초기화 필수
+         */
+        em.flush();
+        em.clear();
+
+        // member1 = 10 -> DB : 비회원
+        // member2 = 20 -> DB : 비회원
+        // member3 = 40 -> DB : member3
+        // member4 = 50 -> DB : member4
+
+        // flush() clear()를 하지 않으면 영속성 컨텍스트는 변하지 않음 -> 영속성 컨텍스트가 우선권을 가지고 있기 때문
+        List<Member> result = queryFactory
+                .selectFrom(member)
+                .fetch();
+
+        for (Member member1 : result) {
+            System.out.println("member1 = " + member1);
+        }
+    }
+
+    @Test
+    void bulkAdd() {
+        long count = queryFactory
+                .update(member)
+                .set(member.age, member.age.add(1))
+                .execute();
+    }
+
+    @Test
+    void bulkDelete() {
+        long count = queryFactory
+                .delete(member)
+                .where(member.age.gt(18))
+                .execute();
     }
 }
