@@ -181,3 +181,5 @@ infrean/TestCode/src/main/resources/application.yml
 infrean/queryDsl/실전! Querydsl v2023-01-03.pdf
 
 infrean/JPA/src/main/resources/META-INF/persistence.xml
+
+infrean/jpashop/pom.xml
