@@ -15,17 +15,24 @@ public class JpaMain {
 
         try {
 
-            Address address = new Address("city", "street", "1000");
-
             Member member = new Member();
-            member.setUsername("name");
-            member.setHomeAddress(address);
-            member.setWorkPeriod(new Period());
+            member.setUsername("member1");
+            member.setHomeAddress(new Address("homeCity", "street", "10000"));
+
+            member.getFavoriteFoods().add("치킨");
+            member.getFavoriteFoods().add("족발");
+            member.getFavoriteFoods().add("피자");
+
+            member.getAddressHistory().add(new Address("old1", "street", "10000"));
+            member.getAddressHistory().add(new Address("old2", "street", "10001"));
 
             em.persist(member);
 
-            Address newAddress = new Address("NewCity", address.getStreet(), address.getZipcode());
-            member.setHomeAddress(newAddress);
+            em.flush();
+            em.clear();
+
+            Member member1 = em.find(Member.class, member.getId());
+            member.getAddressHistory().remove(new Address("old1", "street", "10000"));
 
             tx.commit();
         } catch (Exception e) {
