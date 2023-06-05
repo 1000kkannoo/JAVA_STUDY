@@ -1,8 +1,13 @@
-package main.study;
+package main.study.setion1;
 
-public class q1문자찾기 {
+import java.util.Scanner;
+
+public class Q1_문자찾기 {
     public static void main(String[] args) {
-        System.out.println(solution("Computercooler", 'c'));
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+        char c = sc.next().charAt(0);
+        System.out.println(solution(str, c));
     }
 
     public static int solution(String str, char t) {
@@ -13,13 +18,6 @@ public class q1문자찾기 {
         for (char c : str.toCharArray()) {
             answer = (c == t) ? answer + 1 : answer;
         }
-
-        /*
-        for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) == t) {
-                answer++;
-            }
-        }*/
 
         return answer;
     }
