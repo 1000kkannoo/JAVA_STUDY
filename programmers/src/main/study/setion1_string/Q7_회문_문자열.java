@@ -1,4 +1,4 @@
-package main.study.setion1;
+package main.study.setion1_string;
 
 import java.util.Scanner;
 
