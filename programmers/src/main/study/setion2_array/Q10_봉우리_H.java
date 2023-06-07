@@ -2,7 +2,7 @@ package main.study.setion2_array;
 
 import java.util.Scanner;
 
-public class Q9_격자판_최대합 {
+public class Q10_봉우리_H {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -16,19 +16,23 @@ public class Q9_격자판_최대합 {
     }
 
     private static int solution(int n, int[][] arr) {
-        int max = Integer.MIN_VALUE, leftSide = 0, rightSide = 0;
+        int[] dx = {-1, 0, 1, 0};
+        int[] dy = {0, 1, 0, -1};
+        int answer = 0;
         for (int i = 0; i < n; i++) {
-            int sum1 = 0;
-            int sum2 = 0;
             for (int j = 0; j < n; j++) {
-                sum1 += arr[i][j];
-                sum2 += arr[j][i];
+                boolean flag = true;
+                for (int k = 0; k < 4; k++) {
+                    int nx = i + dx[k];
+                    int ny = j + dy[k];
+                    if (nx >= 0 && nx < n && ny >= 0 && ny < n && arr[nx][ny] >= arr[i][j]) {
+                        flag = false;
+                        break;
+                    }
+                }
+                if (flag) answer++;
             }
-            max = Math.max(max, Math.max(sum1, sum2));
-            leftSide += arr[i][i];
-            rightSide += arr[i][n - i - 1];
         }
-
-        return Math.max(max, Math.max(leftSide, rightSide));
+        return answer;
     }
 }
