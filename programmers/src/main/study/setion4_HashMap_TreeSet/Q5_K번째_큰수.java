@@ -21,17 +21,17 @@ public class Q5_K번째_큰수 {
 
     private static int solution(int n, int k, int[] arr) {
         int answer = -1;
-        TreeSet<Integer> setT = new TreeSet<>(Collections.reverseOrder());
+        TreeSet<Integer> treeSet = new TreeSet<>(Collections.reverseOrder());
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
                 for (int l = j + 1; l < n; l++) {
-                    setT.add(arr[i] + arr[j] + arr[l]);
+                    treeSet.add(arr[i] + arr[j] + arr[l]);
                 }
             }
         }
 
         int cnt = 0;
-        for (int num : setT) {
+        for (int num : treeSet) {
             cnt++;
             if (cnt == k) return num;
         }
