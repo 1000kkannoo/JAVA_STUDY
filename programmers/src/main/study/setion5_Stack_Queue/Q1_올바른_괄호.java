@@ -22,7 +22,7 @@ public class Q1_올바른_괄호 {
             }
         }
 
-        if (stack.empty()) answer = "YES";
+        if (stack.isEmpty()) answer = "YES";
 
         return answer;
     }
