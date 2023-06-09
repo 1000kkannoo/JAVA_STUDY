@@ -48,13 +48,12 @@ public class Q4_모든_아나그램_찾기 {
         for (int i = 0; i < str2.length() - 1; i++) map.put(str1.charAt(i), map.getOrDefault(str1.charAt(i), 0) + 1);
 
         for (int lt = 0, rt = str2.length() - 1; rt < str1.length(); rt++, lt++) {
-            char rightKey = str1.charAt(rt);
-            char leftKey = str1.charAt(lt);
-            map.put(rightKey, map.getOrDefault(rightKey, 0) + 1);
+            map.put(str1.charAt(rt), map.getOrDefault(str1.charAt(rt), 0) + 1);
             if (map.equals(matchMap)) answer++;
-            map.put(leftKey, map.get(leftKey) - 1);
-            if (map.get(leftKey) == 0) map.remove(leftKey);
+            map.put(str1.charAt(lt), map.get(str1.charAt(lt)) - 1);
+            if (map.get(str1.charAt(lt)) == 0) map.remove(str1.charAt(lt));
         }
+
         return answer;
     }
 }
