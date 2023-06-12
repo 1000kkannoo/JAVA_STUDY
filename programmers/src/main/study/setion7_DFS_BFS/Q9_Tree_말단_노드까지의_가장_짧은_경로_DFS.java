@@ -10,7 +10,7 @@ class Node3 {
     }
 }
 
-public class Q9_Tree_말단_노드까지의_가장_짧은_경로 {
+public class Q9_Tree_말단_노드까지의_가장_짧은_경로_DFS {
     static int max = Integer.MAX_VALUE;
     static int count = 0;
 
