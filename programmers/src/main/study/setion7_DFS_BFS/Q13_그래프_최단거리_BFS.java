@@ -27,10 +27,27 @@ public class Q13_그래프_최단거리_BFS {
             graph.get(a).add(b);
         }
 
-        BFS(1);
+        BFS2(1);
 
         for (int i = 2; i < answer.length; i++) {
             System.out.println(i + " : " + answer[i]);
+        }
+    }
+
+    private static void BFS2(int k) {
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(k);
+        while (!queue.isEmpty()) {
+            int length = queue.size();
+            for (int i = 0; i < length; i++) {
+                int poll = queue.poll();
+                for (int num : graph.get(poll)) {
+                    if (answer[num] == 0) {
+                        answer[num] = answer[poll] + 1;
+                        queue.add(num);
+                    }
+                }
+            }
         }
     }
 
