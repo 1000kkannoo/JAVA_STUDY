@@ -1,9 +1,9 @@
-package main.study.setion7_DFS_BFS;
+package main.study.setion8_DFS_BFS_활용;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Q14_합이_같은_부분_집합 {
+public class Q1_합이_같은_부분_집합 {
     static String answer = "NO";
     static int[] arr;
     static int val;

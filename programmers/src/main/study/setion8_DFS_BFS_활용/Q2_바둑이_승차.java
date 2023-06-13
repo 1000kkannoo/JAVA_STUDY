@@ -1,8 +1,8 @@
-package main.study.setion7_DFS_BFS;
+package main.study.setion8_DFS_BFS_활용;
 
 import java.util.Scanner;
 
-public class Q15_바둑이_승차 {
+public class Q2_바둑이_승차 {
     static int c, max;
     static int[] arr;
 
