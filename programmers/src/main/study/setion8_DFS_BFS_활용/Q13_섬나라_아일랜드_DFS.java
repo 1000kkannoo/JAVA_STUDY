@@ -2,7 +2,7 @@ package main.study.setion8_DFS_BFS_활용;
 
 import java.util.Scanner;
 
-public class Q13_섬나라_아일랜드 {
+public class Q13_섬나라_아일랜드_DFS {
     // 12시 방향으로 주변 탐색
     static int[] dx = {-1, -1, 0, 1, 1, 1, 0, -1};
     static int[] dy = {0, 1, 1, 1, 0, -1, -1, -1};
