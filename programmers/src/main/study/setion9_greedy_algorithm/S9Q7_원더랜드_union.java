@@ -21,7 +21,7 @@ class Point implements Comparable<Point> {
     }
 }
 
-public class S9Q7_원더랜드_uion {
+public class S9Q7_원더랜드_union {
     static int[] connect;
     static int answer = 0;
 
