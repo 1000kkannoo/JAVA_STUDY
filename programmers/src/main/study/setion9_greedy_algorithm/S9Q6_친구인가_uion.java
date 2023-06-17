@@ -2,7 +2,7 @@ package main.study.setion9_greedy_algorithm;
 
 import java.util.Scanner;
 
-public class S9Q6_친구인가_union {
+public class S9Q6_친구인가_uion {
     static int[] friend;
 
     public static void main(String[] args) {
