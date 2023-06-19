@@ -28,7 +28,7 @@ public class Q3_크레인_인형뽑기 {
         Stack<Integer> stack = new Stack<>();
         int answer = 0;
         for (int move : moves) {
-            for (int j = 0; j < n; j++) {
+            for (int j = 0; j < board.length; j++) {
                 if (board[j][move] != 0) {
                     int tmp = board[j][move];
                     board[j][move] = 0;
