@@ -10,7 +10,6 @@ public class Q_10171 {
             arr[i] = sc.next();
         }
 
-
         for (String s : solution(n, arr)) {
             System.out.println(s);
         }
