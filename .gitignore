@@ -211,3 +211,5 @@ infrean/JPA : QueryDSL 강의자료/실전! Querydsl v2023-05-26.pdf
 baekjoon/.idea/
 
 baekjoon/baekjoon.iml
+
+infrean/TestCode/src/test/resources/application.yml
