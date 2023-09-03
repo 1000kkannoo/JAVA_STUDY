@@ -1,35 +1,65 @@
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Problem6 {
+
     public static void main(String[] args) {
         String[][] emailArray = {
-                {"im@email.com", "제이엠"},
+                {"jm@email.com", "제이엠"},
                 {"jason@email.com", "제이슨"},
                 {"woniee@email.com", "워니"},
-                {"mi@email.com", "엠제이"},
+                {"mj@email.com", "엠제이"},
                 {"nowm@email.com", "이제엠"}
         };
+
         System.out.println(solution(emailArray));
     }
 
     private static List<String> solution(String[][] emailArray) {
+        Map<String, Integer> map = emailsBySubstring(emailArray);
+        HashSet<String> resultSet = checkNickName(emailArray, map);
 
+        return sortList(resultSet);
+    }
+
+    private static Map<String, Integer> emailsBySubstring(String[][] emailArray) {
         HashMap<String, Integer> map = new HashMap<>();
 
-        for (int i = 0; i < emailArray.length; i++) {
-            String email = emailArray[i][0];
-            String nickName = emailArray[i][1];
+        for (String[] strings : emailArray) {
+            String email = strings[0];
+            String nickName = strings[1];
 
             myAccountValidate(email, nickName);
 
-            map.put(email, map.getOrDefault(email, 0) + 1);
-            
+            for (int j = 0; j < nickName.length() - 1; j++) {
+                String subNickName = nickName.substring(j, j + 2);
+                map.put(subNickName, map.getOrDefault(subNickName, 0) + 1);
+            }
         }
-        return null;
+        return map;
+    }
+
+    private static HashSet<String> checkNickName(String[][] emailArray, Map<String, Integer> map) {
+        HashSet<String> resultSet = new HashSet<>();
+        for (String[] strings : emailArray) {
+            String email = strings[0];
+            String nickName = strings[1];
+
+            for (String key : map.keySet()) {
+                if (map.get(key) >= 2 && nickName.contains(key)) {
+                    resultSet.add(email);
+                    break;
+                }
+            }
+        }
+        return resultSet;
+    }
+
+    private static List<String> sortList(HashSet<String> resultSet) {
+        List<String> result = new ArrayList<>(resultSet);
+        Collections.sort(result);
+        return result;
     }
 
     private static void myAccountValidate(String email, String nickName) {
