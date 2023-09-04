@@ -6,12 +6,15 @@ public class FunctionTest {
         int n1 = 10;
         int n2 = 20;
 
-        int total = addNum(30 ,50);
+        int total = addNum(30, 50);
         System.out.println(total);
         sayHello("Hello");
 
         int sum = calcSum();
         System.out.println(sum);
+
+        double v = doubleSum(n1, n2);
+        System.out.println(v);
     }
 
     // main 이 public static 으로 선언되었기에 static 메서드로 함수를 정의
@@ -31,9 +34,14 @@ public class FunctionTest {
         int i;
         int sum = 0;
 
-        for(i = 0; i <= 100; i++) {
+        for (i = 0; i <= 100; i++) {
             sum += i;
         }
         return sum;
+    }
+
+    public static double doubleSum(int a, int b) {
+        // 제곱
+        return Math.pow(a + b, 2);
     }
 }

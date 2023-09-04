@@ -1,12 +1,15 @@
 package ch08;
 
+import java.util.Optional;
+
 // 학생의 객체
 // 학생은 과목을 가지고 있음.
 public class Student {
     Subject korean;
     Subject math;
-    private int studentId;
+    private final int studentId;
     private String studentName;
+    private String studentCard;
 
     public Student(int id, String name) {
         this.studentId = id;
@@ -16,6 +19,32 @@ public class Student {
         // String 클래스는 예외
         korean = new Subject();
         math = new Subject();
+    }
+
+    public Optional<String> getStudentCardOptional() {
+        return Optional.ofNullable(studentCard);
+    }
+
+    public Student(int id, String name, String card) {
+        this.studentId = id;
+        this.studentName = name;
+        this.studentCard = card;
+
+        // 클래스 변수들은 생성자를 무조건 생성해야함
+        // String 클래스는 예외
+        korean = new Subject();
+        math = new Subject();
+    }
+
+    public Student(int id, String name, String card, Subject korean, Subject math) {
+        this.studentId = id;
+        this.studentName = name;
+        this.studentCard = card;
+
+        // 클래스 변수들은 생성자를 무조건 생성해야함
+        // String 클래스는 예외
+        this.korean = korean;
+        this.math = math;
     }
 
     public void setKoreanSubject(String name, int score) {
@@ -31,6 +60,10 @@ public class Student {
     public void showStudentScore() {
         int total = korean.score + math.score;
         System.out.println(studentName + "학생의 총점은 " + total + "점 입니다.");
+    }
+
+    public Subject getKorean() {
+        return korean;
     }
 
     public int getSubjectScore(String subject){
