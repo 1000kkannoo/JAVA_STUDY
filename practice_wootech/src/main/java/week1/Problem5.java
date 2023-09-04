@@ -1,3 +1,5 @@
+package week1;
+
 public class Problem5 {
     public static void main(String[] args) {
         for (int answer : solution(15000)) {
