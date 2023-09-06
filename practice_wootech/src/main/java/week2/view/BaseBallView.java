@@ -6,34 +6,16 @@ import java.util.*;
 
 public class BaseBallView {
 
-    public Number gameStart() {
+    public void gameStart() {
         System.out.println("숫자 야구 게임을 시작합니다.");
-
-        Random rand = new Random();
-
-        StringBuilder computerNumber = new StringBuilder();
-        for (int i = 0; i < 3; i++) {
-            int num = rand.nextInt(9) + 1;
-            computerNumber.append(num);
-        }
-
-        return new Number(computerNumber.toString());
     }
 
-    public Optional<Boolean> isContinue(boolean isStop) {
-        if (isStop) {
+    public Boolean isContinue() {
             System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
             Scanner sc = new Scanner(System.in);
             String toggleContinue = sc.nextLine();
 
-            if (toggleContinue.equals("1")) {
-                return Optional.of(true);
-            }
-
-            return Optional.of(false);
-        }
-
-        return Optional.empty();
+        return toggleContinue.equals("1");
     }
 
     public boolean adviceResult(Integer strike, Integer boll) {
@@ -60,7 +42,7 @@ public class BaseBallView {
         }
     }
 
-    public String inputMyNumber() {
+    public Number inputMyNumber() {
         System.out.print("숫자를 입력해주세요 : ");
         Scanner sc = new Scanner(System.in);
         String number = sc.nextLine();
@@ -69,7 +51,7 @@ public class BaseBallView {
         validateNumericLength(number);
         validateDifferentNumber(number);
 
-        return number;
+        return new Number(number);
     }
 
     public void validateNumericInput(String number) {

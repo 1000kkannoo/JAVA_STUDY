@@ -9,7 +9,6 @@ import week2.model.Number;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -32,18 +31,6 @@ class BaseBallViewTest {
 
     BaseBallView baseBallView = new BaseBallView();
 
-    @DisplayName("게임을 시작하면 랜덤한 숫자가 생성된다.")
-    @Test
-    void gameStart() {
-        // given
-
-        // when
-        Number number = baseBallView.gameStart();
-
-        // then
-        assertThat(number.getNum().length()).isEqualTo(3);
-    }
-
     @DisplayName("사용자가 숫자를 입력한다.")
     @Test
     void inputMyNumber() {
@@ -53,10 +40,10 @@ class BaseBallViewTest {
         String input = "123\n";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
-        String number = baseBallView.inputMyNumber();
+        Number number = baseBallView.inputMyNumber();
 
         // then
-        assertThat(number).isEqualTo("123");
+        assertThat(number.getNum()).isEqualTo("123");
     }
 
     @DisplayName("입력받은 값이 숫자가 아닌 경우 IllegalArgumentException 이 발생한다.")
@@ -163,18 +150,6 @@ class BaseBallViewTest {
         assertEquals(expectedOutput, outContent.toString());
     }
 
-    @DisplayName("유저가 아직 게임을 끝내지 못했다.")
-    @Test
-    void isContinue() {
-        // given
-
-        // when
-        Optional<Boolean> optionalContinue = baseBallView.isContinue(false);
-
-        // then
-        assertThat(optionalContinue.isEmpty()).isTrue();
-    }
-
     @DisplayName("게임이 끝나고 재시작을 한다.")
     @Test
     void isContinueWithRestart() {
@@ -183,10 +158,10 @@ class BaseBallViewTest {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         // when
-        Optional<Boolean> optionalContinue = baseBallView.isContinue(true);
+        Boolean isContinue = baseBallView.isContinue();
 
         // then
-        assertThat(optionalContinue.get()).isTrue();
+        assertThat(isContinue).isTrue();
     }
 
     @DisplayName("게임을 종료한다.")
@@ -197,9 +172,9 @@ class BaseBallViewTest {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         // when
-        Optional<Boolean> optionalContinue = baseBallView.isContinue(true);
+        Boolean isContinue = baseBallView.isContinue();
 
         // then
-        assertThat(optionalContinue.get()).isEqualTo(false);
+        assertThat(isContinue).isEqualTo(false);
     }
 }
