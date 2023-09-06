@@ -14,6 +14,7 @@ public class BaseBallView {
     public static final int NO_BOLL = 0;
     public static final String GAME_START = "1";
     public static final String GAME_STOP = "2";
+    public static final Integer NUMBER_LENGTH = 3;
 
     private final Scanner scanner;
 
@@ -92,7 +93,7 @@ public class BaseBallView {
     }
 
     public void validateNumericLength(String number) {
-        if (number.length() != 3) {
+        if (number.length() != NUMBER_LENGTH) {
             throw new IllegalArgumentException("숫자의 길이는 3 이여야합니다.");
         }
     }
@@ -105,7 +106,7 @@ public class BaseBallView {
         }
 
         // Set 을 통해 중복제거 된 길이와 기존 String 의 길이 비교
-        if (digits.size() != number.length()) {
+        if (digits.size() != NUMBER_LENGTH) {
             throw new IllegalArgumentException("숫자는 전부 다른 숫자여야 합니다.");
         }
     }
