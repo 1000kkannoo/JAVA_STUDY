@@ -9,6 +9,12 @@ import java.util.Set;
 
 public class BaseBallView {
 
+    public static final int ALL_STRIKE = 3;
+    public static final int NO_STRIKE = 0;
+    public static final int NO_BOLL = 0;
+    public static final String GAME_START = "1";
+    public static final String GAME_STOP = "2";
+
     private final Scanner scanner;
 
     public BaseBallView(InputStream in) {
@@ -19,29 +25,35 @@ public class BaseBallView {
         System.out.println("숫자 야구 게임을 시작합니다.");
     }
 
-    public Boolean isContinue() {
-            System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-            String toggleContinue = scanner.nextLine();
+    public boolean isContinue() {
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        String toggleContinue = scanner.nextLine();
 
-        return toggleContinue.equals("1");
+        if (toggleContinue.equals(GAME_START)) {
+            return true;
+        } else if (toggleContinue.equals(GAME_STOP)) {
+            return false;
+        }
+
+        throw new IllegalArgumentException("1 또는 2만 입력해야 합니다.");
     }
 
     public boolean adviceResult(Integer strike, Integer boll) {
-        if (strike == 3) {
+        if (strike == ALL_STRIKE) {
             System.out.println("3스트라이크");
             System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
             return true;
-        } else if (strike == 0 && boll == 0) {
+        } else if (strike == NO_STRIKE && boll == NO_BOLL) {
             System.out.println("낫싱");
             return false;
         } else {
             String resultStrike = "";
             String resultBoll = "";
 
-            if (boll != 0) {
+            if (boll != NO_BOLL) {
                 resultBoll = String.format("%s볼 ", boll);
             }
-            if (strike != 0) {
+            if (strike != NO_STRIKE) {
                 resultStrike = String.format("%s스트라이크", strike);
             }
 

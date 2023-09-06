@@ -182,4 +182,18 @@ class BaseBallViewTest {
         // then
         assertThat(isContinue).isEqualTo(false);
     }
+
+    @DisplayName("게임이 종료되었을때 재시작을 위해 1 또는 2 가 아닌 다른 숫자를 입력했을 경우 Exception 이 발생한다.")
+    @Test
+    void isContinue() {
+        // given
+        String input = "3\n";
+        BaseBallView inputBaseBallView = setInputBaseBallView(input);
+
+        // when // then
+        assertThatThrownBy(inputBaseBallView::isContinue)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("1 또는 2만 입력해야 합니다.");
+
+    }
 }
