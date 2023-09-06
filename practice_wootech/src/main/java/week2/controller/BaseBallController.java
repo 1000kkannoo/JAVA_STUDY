@@ -22,9 +22,9 @@ public class BaseBallController {
                 Integer strike = computerNumber.checkStrike(myNumber);
                 Integer boll = computerNumber.checkBoll(myNumber);
 
-                boolean result = baseBallView.adviceResult(strike, boll);
+                boolean isGameComplete = baseBallView.adviceResult(strike, boll);
 
-                if (result) {
+                if (isGameComplete) {
                     break;
                 }
             }

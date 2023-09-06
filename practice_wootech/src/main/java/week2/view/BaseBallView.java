@@ -40,26 +40,38 @@ public class BaseBallView {
 
     public boolean adviceResult(Integer strike, Integer boll) {
         if (strike == ALL_STRIKE) {
-            System.out.println("3스트라이크");
-            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
-            return true;
+            return processAllStrike();
         } else if (strike == NO_STRIKE && boll == NO_BOLL) {
-            System.out.println("낫싱");
-            return false;
+            return processNothing();
         } else {
-            String resultStrike = "";
-            String resultBoll = "";
-
-            if (boll != NO_BOLL) {
-                resultBoll = String.format("%s볼 ", boll);
-            }
-            if (strike != NO_STRIKE) {
-                resultStrike = String.format("%s스트라이크", strike);
-            }
-
-            System.out.printf("%s%s\n", resultBoll, resultStrike);
-            return false;
+            return processStrikeAndBoll(strike, boll);
         }
+    }
+
+    private static boolean processStrikeAndBoll(Integer strike, Integer boll) {
+        String resultStrike = "";
+        String resultBoll = "";
+
+        if (boll != NO_BOLL) {
+            resultBoll = String.format("%s볼 ", boll);
+        }
+        if (strike != NO_STRIKE) {
+            resultStrike = String.format("%s스트라이크", strike);
+        }
+
+        System.out.printf("%s%s\n", resultBoll, resultStrike);
+        return false;
+    }
+
+    private static boolean processNothing() {
+        System.out.println("낫싱");
+        return false;
+    }
+
+    private static boolean processAllStrike() {
+        System.out.println("3스트라이크");
+        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+        return true;
     }
 
     public Number inputMyNumber() {
