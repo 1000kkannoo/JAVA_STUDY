@@ -25,7 +25,7 @@ public class Number {
 
         StringBuilder computerNumber = new StringBuilder();
         for (int i = 0; i < MAX_DIGITS; i++) {
-            computerNumber.append(ALL_DIGITS.get(i));
+            computerNumber.append(numbers.get(i));
         }
 
         return new Number(computerNumber.toString());
