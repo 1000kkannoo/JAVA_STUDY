@@ -29,7 +29,11 @@ class BaseBallViewTest {
         System.setOut(originalOut);
     }
 
-    BaseBallView baseBallView = new BaseBallView();
+    BaseBallView baseBallView = new BaseBallView(System.in);
+
+    private BaseBallView setInputBaseBallView(String input) {
+        return new BaseBallView(new ByteArrayInputStream(input.getBytes()));
+    }
 
     @DisplayName("사용자가 숫자를 입력한다.")
     @Test
@@ -38,9 +42,10 @@ class BaseBallViewTest {
 
         // when
         String input = "123\n";
-        System.setIn(new ByteArrayInputStream(input.getBytes()));
 
-        Number number = baseBallView.inputMyNumber();
+        BaseBallView inputBaseBallView = setInputBaseBallView(input);
+
+        Number number = inputBaseBallView.inputMyNumber();
 
         // then
         assertThat(number.getNum()).isEqualTo("123");
@@ -155,10 +160,10 @@ class BaseBallViewTest {
     void isContinueWithRestart() {
         // given
         String input = "1\n";
-        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        BaseBallView inputBaseBallView = setInputBaseBallView(input);
 
         // when
-        Boolean isContinue = baseBallView.isContinue();
+        Boolean isContinue = inputBaseBallView.isContinue();
 
         // then
         assertThat(isContinue).isTrue();
@@ -169,10 +174,10 @@ class BaseBallViewTest {
     void isContinueWithEnd() {
         // given
         String input = "2\n";
-        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        BaseBallView inputBaseBallView = setInputBaseBallView(input);
 
         // when
-        Boolean isContinue = baseBallView.isContinue();
+        Boolean isContinue = inputBaseBallView.isContinue();
 
         // then
         assertThat(isContinue).isEqualTo(false);

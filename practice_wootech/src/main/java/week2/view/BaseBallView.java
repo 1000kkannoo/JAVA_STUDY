@@ -2,9 +2,18 @@ package week2.view;
 
 import week2.model.Number;
 
-import java.util.*;
+import java.io.InputStream;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
 
 public class BaseBallView {
+
+    private final Scanner scanner;
+
+    public BaseBallView(InputStream in) {
+        this.scanner = new Scanner(in);
+    }
 
     public void gameStart() {
         System.out.println("숫자 야구 게임을 시작합니다.");
@@ -12,8 +21,7 @@ public class BaseBallView {
 
     public Boolean isContinue() {
             System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-            Scanner sc = new Scanner(System.in);
-            String toggleContinue = sc.nextLine();
+            String toggleContinue = scanner.nextLine();
 
         return toggleContinue.equals("1");
     }
@@ -44,8 +52,7 @@ public class BaseBallView {
 
     public Number inputMyNumber() {
         System.out.print("숫자를 입력해주세요 : ");
-        Scanner sc = new Scanner(System.in);
-        String number = sc.nextLine();
+        String number = scanner.nextLine();
 
         validateNumericInput(number);
         validateNumericLength(number);
