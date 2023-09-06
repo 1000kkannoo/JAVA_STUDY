@@ -29,7 +29,7 @@ class NumberTest {
         Number myNumber = new Number("134");
 
         // when
-        Integer strike = computerNumber.checkStrike(myNumber);
+        Integer strike = computerNumber.countStrike(myNumber);
 
         // then
         assertThat(strike).isEqualTo(2);
@@ -43,7 +43,7 @@ class NumberTest {
         Number myNumber = new Number("523");
 
         // when
-        Integer boll = computerNumber.checkBoll(myNumber);
+        Integer boll = computerNumber.countBoll(myNumber);
 
         // then
         assertThat(boll).isEqualTo(1);

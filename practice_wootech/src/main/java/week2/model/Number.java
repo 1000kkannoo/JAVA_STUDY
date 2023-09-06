@@ -31,7 +31,7 @@ public class Number {
         return new Number(computerNumber.toString());
     }
 
-    public Integer checkStrike(Number myNumber) {
+    public Integer countStrike(Number myNumber) {
         String myNum = myNumber.getNum();
         int strike = 0;
 
@@ -44,7 +44,7 @@ public class Number {
         return strike;
     }
 
-    public Integer checkBoll(Number myNumber) {
+    public Integer countBoll(Number myNumber) {
         String myNum = myNumber.getNum();
         int boll = 0;
 
