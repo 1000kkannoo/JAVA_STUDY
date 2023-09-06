@@ -79,22 +79,15 @@ public class BaseBallView {
         System.out.print("숫자를 입력해주세요 : ");
         String number = scanner.nextLine();
 
-        validateNumericInput(number);
-        validateNumericLength(number);
+        validateThreeDigitNumericInput(number);
         validateDifferentNumber(number);
 
         return new Number(number);
     }
 
-    public void validateNumericInput(String number) {
-        if (number.matches("\\d+") == false) {
-            throw new IllegalArgumentException("숫자를 입력해야 합니다.");
-        }
-    }
-
-    public void validateNumericLength(String number) {
-        if (number.length() != NUMBER_LENGTH) {
-            throw new IllegalArgumentException("숫자의 길이는 3 이여야합니다.");
+    public void validateThreeDigitNumericInput(String number) {
+        if (!number.matches("^\\d{3}$")) {
+            throw new IllegalArgumentException("입력은 숫자 및 3글자 여야 합니다.");
         }
     }
 

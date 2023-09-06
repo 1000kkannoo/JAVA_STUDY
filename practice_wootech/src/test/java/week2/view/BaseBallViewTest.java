@@ -57,9 +57,9 @@ class BaseBallViewTest {
         // given
 
         // when // then
-        assertThatThrownBy(() -> baseBallView.validateNumericInput("35r"))
+        assertThatThrownBy(() -> baseBallView.validateThreeDigitNumericInput("35r"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("숫자를 입력해야 합니다.");
+                .hasMessage("입력은 숫자 및 3글자 여야 합니다.");
     }
 
     @DisplayName("입력받은 값이 길이가 3이 아닌 경우 IllegalArgumentException 이 발생한다.")
@@ -68,9 +68,9 @@ class BaseBallViewTest {
         // given
 
         // when // then
-        assertThatThrownBy(() -> baseBallView.validateNumericLength("3333"))
+        assertThatThrownBy(() -> baseBallView.validateThreeDigitNumericInput("3333"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("숫자의 길이는 3 이여야합니다.");
+                .hasMessage("입력은 숫자 및 3글자 여야 합니다.");
     }
 
     @DisplayName("입력받은 숫자가 전부 다르지 않은 경우 IllegalArgumentException 이 발생한다.")
