@@ -15,21 +15,23 @@ public class BaseBallController {
 
         do {
             Number computerNumber = Number.createRandNumber();
-
-            while (true) {
-                Number myNumber = baseBallView.inputMyNumber();
-
-                Integer strike = computerNumber.checkStrike(myNumber);
-                Integer boll = computerNumber.checkBoll(myNumber);
-
-                boolean isGameComplete = baseBallView.adviceResult(strike, boll);
-
-                if (isGameComplete) {
-                    break;
-                }
-            }
-
+            playRound(computerNumber);
         } while (baseBallView.isContinue() != false);
+    }
+
+    private void playRound(Number computerNumber) {
+        while (true) {
+            Number myNumber = baseBallView.inputMyNumber();
+
+            Integer strike = computerNumber.countStrike(myNumber);
+            Integer boll = computerNumber.countBoll(myNumber);
+
+            boolean isGameComplete = baseBallView.adviceResult(strike, boll);
+
+            if (isGameComplete) {
+                break;
+            }
+        }
     }
 
 }
