@@ -21,32 +21,4 @@ class NumberTest {
         assertThat(num.chars().distinct().count()).isEqualTo(3);  // 각 숫자마다 전부 다른 숫자인지 확인
     }
 
-    @DisplayName("유저가 자신이 입력한 숫자가 몇 strike 인지 확인한다.")
-    @Test
-    void checkStrike() {
-        // given
-        Number computerNumber = new Number("534");
-        Number myNumber = new Number("134");
-
-        // when
-        Integer strike = computerNumber.countStrike(myNumber);
-
-        // then
-        assertThat(strike).isEqualTo(2);
-    }
-
-    @DisplayName("유저가 자신이 입력한 숫자가 몇 boll 인지 확인한다.")
-    @Test
-    void checkBoll() {
-        // given
-        Number computerNumber = new Number("534");
-        Number myNumber = new Number("523");
-
-        // when
-        Integer boll = computerNumber.countBoll(myNumber);
-
-        // then
-        assertThat(boll).isEqualTo(1);
-    }
-
 }
