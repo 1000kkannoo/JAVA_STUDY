@@ -3,6 +3,7 @@ package week3.view;
 import week3.model.Lotto;
 
 import java.io.InputStream;
+import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -48,7 +49,10 @@ public class LottoView {
         return inputNumber;
     }
 
-    public void lottoResult(Map<Integer, Integer> result, String rate) {
+    public void lottoResult(Map<Integer, Integer> result, Double rate) {
+        // 출력 형식 적용
+        NumberFormat nf = createNumberFormat();
+
         System.out.println("당첨 통계");
         System.out.println("---");
         System.out.printf("3개 일치 (5,000원) - %s개\n", result.getOrDefault(3, 0));
@@ -56,7 +60,14 @@ public class LottoView {
         System.out.printf("5개 일치 (1,500,000원) - %s개\n", result.getOrDefault(5, 0));
         System.out.printf("5개 일치, 보너스 볼 일치 (30,000,000원) - %s개\n", result.getOrDefault(0, 0));
         System.out.printf("6개 일치 (2,000,000,000원) - %s개\n", result.getOrDefault(6, 0));
-        System.out.println("총 수익률은 " + rate + "%입니다.");
+        System.out.println("총 수익률은 " + nf.format(100 + rate) + "%입니다.");
+    }
+
+    private static NumberFormat createNumberFormat() {
+        NumberFormat nf = NumberFormat.getInstance();
+        nf.setMinimumFractionDigits(1);
+        nf.setMaximumFractionDigits(1);
+        return nf;
     }
 
     public List<Integer> getIntegerNumbers(String numbers) {

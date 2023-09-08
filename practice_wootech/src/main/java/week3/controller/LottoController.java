@@ -29,7 +29,7 @@ public class LottoController {
 
         // 로또 당첨 확인 및 수익률 계산
         Map<Integer, Integer> result = Lotto.verifyLottoResult(lottoList, winningNumbers, bonusNumber);
-        String rate = Lotto.calculateProfitRate(result, price);
+        Double rate = Lotto.calculateProfitRate(result, price);
 
         // 로또 당첨 통계 출력
         lottoView.lottoResult(result, rate);

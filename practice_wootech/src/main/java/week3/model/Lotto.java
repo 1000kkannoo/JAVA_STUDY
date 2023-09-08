@@ -1,6 +1,5 @@
 package week3.model;
 
-import java.text.NumberFormat;
 import java.util.*;
 
 public class Lotto {
@@ -19,13 +18,8 @@ public class Lotto {
         return numbers;
     }
 
-    public static String calculateProfitRate(Map<Integer, Integer> result, Integer buy) {
+    public static Double calculateProfitRate(Map<Integer, Integer> result, Integer buy) {
         int sum = 0;
-
-        // 출력 형식 적용
-        NumberFormat nf = NumberFormat.getInstance();
-        nf.setMinimumFractionDigits(1);
-        nf.setMaximumFractionDigits(1);
 
         for (Integer key : result.keySet()) {
             sum += LottoConstants.calculatePrize(key) * result.get(key);
@@ -36,7 +30,7 @@ public class Lotto {
         // 소수점 둘째 자리에서 반올림
         profitRate = Math.round(profitRate * 10) / 10.0;
 
-        return nf.format(100 + profitRate);
+        return profitRate;
     }
 
     public static List<Lotto> createLottoList(Integer price) {
