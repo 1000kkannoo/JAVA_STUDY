@@ -1,7 +1,7 @@
 package week3.service;
 
 import week3.model.Lotto;
-import week3.model.LottoMatchConstants;
+import week3.model.LottoMatchUtils;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +13,7 @@ public class LottoService {
         int sum = 0;
 
         for (Integer key : result.keySet()) {
-            sum += LottoMatchConstants.calculatePrize(key) * result.get(key);
+            sum += LottoMatchUtils.calculatePrize(key) * result.get(key);
         }
 
         double profitRate = ((double) (sum - buy) / buy) * 100;
