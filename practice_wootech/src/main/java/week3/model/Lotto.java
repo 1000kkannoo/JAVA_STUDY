@@ -2,10 +2,9 @@ package week3.model;
 
 import java.util.*;
 
+import static week3.model.LottoConstants.*;
+
 public class Lotto {
-    private static final int LOTTO_MIN = 1;
-    private static final int LOTTO_MAX = 45;
-    private static final int LOTTO_COUNT = 6;
 
     private final List<Integer> numbers;
 
@@ -22,7 +21,7 @@ public class Lotto {
         int sum = 0;
 
         for (Integer key : result.keySet()) {
-            sum += LottoConstants.calculatePrize(key) * result.get(key);
+            sum += LottoMatchConstants.calculatePrize(key) * result.get(key);
         }
 
         double profitRate = ((double) (sum - buy) / buy) * 100;
@@ -37,7 +36,7 @@ public class Lotto {
         price /= 1000;
 
         List<Lotto> LottoList = new ArrayList<>();
-        while (price-- > 0) {
+        while (price --> 0) {
             LottoList.add(createLotto());
         }
 
