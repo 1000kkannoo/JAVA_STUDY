@@ -92,7 +92,7 @@ class LottoTest {
     }
 
     @DisplayName("로또 10장을 구매하고 3개 일치 네개만 있을 경우의 수익률을 계산한다.")
-    @Testƒ
+    @Test
     void calculateProfitRate3() {
         // given
         Map<Integer, Integer> resultMap = new HashMap<>();
