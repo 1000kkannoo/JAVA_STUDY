@@ -3,7 +3,7 @@ package week3.view;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -29,7 +29,7 @@ class LottoViewTest {
         // given
 
         // when
-        List<Integer> integerNumbers = lottoView.getIntegerNumbers("1,2,3,4,5,6");
+        Set<Integer> integerNumbers = lottoView.getIntegerNumbers("1,2,3,4,5,6");
 
         // then
         assertThat(integerNumbers)
@@ -43,7 +43,7 @@ class LottoViewTest {
         // given
 
         // when // then
-        assertThatThrownBy(() -> lottoView.validateInputWinningNumbers(List.of(1, 2, 3, 4, 5)))
+        assertThatThrownBy(() -> lottoView.validateInputWinningNumbers(Set.of(1, 2, 3, 4, 5)))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 당첨 번호를 총 6개 입력해야 합니다.");
     }

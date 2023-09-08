@@ -6,6 +6,7 @@ import week3.view.LottoView;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class LottoController {
     private final LottoService lottoService = new LottoService();
@@ -22,7 +23,7 @@ public class LottoController {
         System.out.println();
 
         // 로또 당첨 번호 입력
-        List<Integer> winningNumbers = lottoView.inputWinningNumbers();
+        Set<Integer> winningNumbers = lottoView.inputWinningNumbers();
         System.out.println();
 
         // 로또 보너스 번호 입력

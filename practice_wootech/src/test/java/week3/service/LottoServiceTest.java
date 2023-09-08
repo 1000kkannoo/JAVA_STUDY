@@ -7,6 +7,7 @@ import week3.model.Lotto;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -25,7 +26,7 @@ class LottoServiceTest {
 
         List<Lotto> lottoList = List.of(lotto1, lotto2, lotto3, lotto4);
 
-        List<Integer> winningNumbers = List.of(1, 33, 34, 35, 40, 42);
+        Set<Integer> winningNumbers = Set.of(1, 33, 34, 35, 40, 42);
 
         // when
         Map<Integer, Integer> resultMap = lottoService.verifyLottoResult(lottoList, winningNumbers, 45);

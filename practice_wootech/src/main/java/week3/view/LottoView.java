@@ -4,10 +4,7 @@ import week3.model.Lotto;
 
 import java.io.InputStream;
 import java.text.NumberFormat;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class LottoView {
@@ -18,6 +15,8 @@ public class LottoView {
     }
 
     // View
+
+    // 로또 구입금액 입력
     public Integer inputPurchasePrice() {
         System.out.println("구입금액을 입력해 주세요.");
         int price = Integer.parseInt(sc.nextLine());
@@ -25,6 +24,7 @@ public class LottoView {
         return price;
     }
 
+    // 로또 구매 결과 출력
     public void purchaseResult(List<Lotto> lottoList) {
         System.out.printf("%s개를 구매했습니다.\n", lottoList.size());
         for (Lotto lotto : lottoList) {
@@ -32,16 +32,18 @@ public class LottoView {
         }
     }
 
-    public List<Integer> inputWinningNumbers() {
+    // 로또 당첨 번호 입력
+    public Set<Integer> inputWinningNumbers() {
         System.out.println("당첨 번호를 입력해 주세요.");
 
         String numbers = sc.nextLine();
-        List<Integer> numberList = getIntegerNumbers(numbers);
+        Set<Integer> numberList = getIntegerNumbers(numbers);
 
         validateInputWinningNumbers(numberList);
         return numberList;
     }
 
+    // 로또 보너스 번호 입력
     public Integer inputBonusNumber() {
         System.out.println("보너스 번호를 입력해 주세요.");
         int inputNumber = Integer.parseInt(sc.nextLine());
@@ -49,8 +51,8 @@ public class LottoView {
         return inputNumber;
     }
 
+    // 로또 결과 출력
     public void lottoResult(Map<Integer, Integer> result, Double rate) {
-        // 출력 형식 적용
         NumberFormat nf = createNumberFormat();
 
         System.out.println("당첨 통계");
@@ -70,15 +72,15 @@ public class LottoView {
         return nf;
     }
 
-    public List<Integer> getIntegerNumbers(String numbers) {
+    public Set<Integer> getIntegerNumbers(String numbers) {
         return Arrays.stream(numbers.split(","))
                 .map(Integer::valueOf)
-                .collect(Collectors.toList());
+                .collect(Collectors.toSet());
     }
 
     // Validate
 
-    public void validateInputWinningNumbers(List<Integer> inputNumbers) {
+    public void validateInputWinningNumbers(Set<Integer> inputNumbers) {
         if (inputNumbers.size() != 6) {
             throw new IllegalArgumentException("[ERROR] 당첨 번호를 총 6개 입력해야 합니다.");
         }
