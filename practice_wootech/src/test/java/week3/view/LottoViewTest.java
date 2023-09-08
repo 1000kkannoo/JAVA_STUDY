@@ -7,11 +7,21 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 
 class LottoViewTest {
 
     private final LottoView lottoView = new LottoView(System.in);
+
+    @DisplayName("유저가 입력한 금액이 1000 단위로 떨어지지 않을때 Exception 발생한다.")
+    @Test
+    void validateInputPurchasePrice() {
+        // given
+
+        // when // then
+        assertThatThrownBy(() -> lottoView.validateInputPurchasePrice(1001))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 구매 금액은 1000 단위로만 가능합니다.");
+    }
 
     @DisplayName("String 으로 입력받은 번호를 List<Integer>로 변환한다.")
     @Test
@@ -59,4 +69,5 @@ class LottoViewTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 로또 번호는 1부터 45 사이의 숫자여야 합니다.");
     }
+
 }
