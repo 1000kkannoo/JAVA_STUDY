@@ -9,8 +9,13 @@ import java.util.Map;
 import java.util.Set;
 
 public class LottoController {
-    private final LottoService lottoService = new LottoService();
-    private final LottoView lottoView = new LottoView(System.in);
+    private final LottoService lottoService;
+    private final LottoView lottoView;
+
+    public LottoController(LottoService lottoService, LottoView lottoView) {
+        this.lottoService = lottoService;
+        this.lottoView = lottoView;
+    }
 
     public void run() {
         // 구매금액 입력
