@@ -71,10 +71,10 @@ class LottoTest {
         resultMap.put(3, 1);
 
         // when
-        String result = Lotto.calculateProfitRate(resultMap, 8000);
+        Double result = Lotto.calculateProfitRate(resultMap, 8000);
 
         // then
-        assertThat(result).isEqualTo("62.5%");
+        assertThat(result).isEqualTo(62.5);
     }
 
     @DisplayName("로또 10장을 구매하고 3개 일치 두개만 있을 경우의 수익률을 계산한다.")
@@ -85,23 +85,23 @@ class LottoTest {
         resultMap.put(3, 2);
 
         // when
-        String result = Lotto.calculateProfitRate(resultMap, 10000);
+        Double result = Lotto.calculateProfitRate(resultMap, 10000);
 
         // then
-        assertThat(result).isEqualTo("100.0%");
+        assertThat(result).isEqualTo(100.0);
     }
 
     @DisplayName("로또 10장을 구매하고 3개 일치 네개만 있을 경우의 수익률을 계산한다.")
-    @Test
+    @Testƒ
     void calculateProfitRate3() {
         // given
         Map<Integer, Integer> resultMap = new HashMap<>();
         resultMap.put(3, 4);
 
         // when
-        String result = Lotto.calculateProfitRate(resultMap, 10000);
+        Double result = Lotto.calculateProfitRate(resultMap, 10000);
 
         // then
-        assertThat(result).isEqualTo("200.0%");
+        assertThat(result).isEqualTo(200.0);
     }
 }

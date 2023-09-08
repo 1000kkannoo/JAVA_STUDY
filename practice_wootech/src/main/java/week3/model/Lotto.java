@@ -29,7 +29,7 @@ public class Lotto {
         // 소수점 둘째 자리에서 반올림
         profitRate = Math.round(profitRate * 10) / 10.0;
 
-        return profitRate;
+        return 100 + profitRate;
     }
 
     public static List<Lotto> createLottoList(Integer price) {

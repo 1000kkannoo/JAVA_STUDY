@@ -60,7 +60,7 @@ public class LottoView {
         System.out.printf("5개 일치 (1,500,000원) - %s개\n", result.getOrDefault(5, 0));
         System.out.printf("5개 일치, 보너스 볼 일치 (30,000,000원) - %s개\n", result.getOrDefault(0, 0));
         System.out.printf("6개 일치 (2,000,000,000원) - %s개\n", result.getOrDefault(6, 0));
-        System.out.println("총 수익률은 " + nf.format(100 + rate) + "%입니다.");
+        System.out.println("총 수익률은 " + nf.format(rate) + "%입니다.");
     }
 
     private static NumberFormat createNumberFormat() {
