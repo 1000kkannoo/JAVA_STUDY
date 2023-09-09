@@ -1,4 +1,4 @@
-package week3.model;
+package week3.service;
 
 public enum LottoMatchUtils {
     MATCH_3_PRIZE(3, 5000),

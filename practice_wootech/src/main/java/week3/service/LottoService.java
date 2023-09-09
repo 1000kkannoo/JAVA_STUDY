@@ -1,7 +1,6 @@
 package week3.service;
 
 import week3.model.Lotto;
-import week3.model.LottoMatchUtils;
 
 import java.util.HashMap;
 import java.util.List;
