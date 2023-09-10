@@ -36,6 +36,17 @@ class InputViewTest {
                 .hasMessage("[ERROR] 다리의 길이를 입력하여야 합니다.");
     }
 
+    @DisplayName("유저가 이동할 다리를 입력 받을때 U 또는 D 가 아닌 입력을 받을 경우 Exception 발생한다.")
+    @Test
+    void validateReadMoving() {
+        // given
+
+        // when // then
+        assertThatThrownBy(() -> inputView.validateReadMoving("L"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 이동할 다리는 U 또는 D 만 가능합니다.");
+    }
+
     @DisplayName("유저가 다리 길이를 입력한다.")
     @Test
     void readBridgeSize() {
@@ -50,17 +61,6 @@ class InputViewTest {
         assertThat(bridgeSize).isEqualTo(7);
     }
 
-    @DisplayName("유저가 이동할 다리를 입력 받을때 U 또는 D 가 아닌 입력을 받을 경우 Exception 발생한다.")
-    @Test
-    void validateReadMoving() {
-        // given
-
-        // when // then
-        assertThatThrownBy(() -> inputView.validateReadMoving("L"))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 이동할 다리는 U 또는 D 만 가능합니다.");
-    }
-
     @DisplayName("유저가 다리를 건너는 방향을 U로 선택한다.")
     @Test
     void readMoving() {
@@ -73,5 +73,16 @@ class InputViewTest {
 
         // then
         assertThat(move).isEqualTo("U");
+    }
+
+    @DisplayName("")
+    @Test
+    void validateReadGameCommand() {
+        // given
+
+        // when // then
+        assertThatThrownBy(() -> inputView.validateReadGameCommand("A"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 커맨드는 Q 또는 R 만 가능합니다.");
     }
 }
