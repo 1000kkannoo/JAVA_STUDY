@@ -31,7 +31,7 @@ class InputViewTest {
         // given
 
         // when // then
-        assertThatThrownBy(() -> inputView.validateReadBridgeIsNull(""))
+        assertThatThrownBy(() -> inputView.validateInputIsNull(""))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 다리의 길이를 입력하여야 합니다.");
     }
@@ -49,5 +49,7 @@ class InputViewTest {
         // then
         assertThat(bridgeSize).isEqualTo(7);
     }
+
+
 
 }
