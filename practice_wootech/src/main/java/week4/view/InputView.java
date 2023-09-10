@@ -16,14 +16,6 @@ public class InputView {
         }
     }
 
-    public int readBridgeSize() {
-        System.out.println("다리의 길이를 입력해주세요.");
-        String strBridgeSize = readLine();
-        validateInputIsNull(strBridgeSize);
-
-        return parseIntBridgeSize(strBridgeSize);
-    }
-
     private int parseIntBridgeSize(String strBridgeSize) {
         int bridgeSize = Integer.parseInt(strBridgeSize);
         validateReadBridgeSizeOver(bridgeSize);
@@ -34,5 +26,22 @@ public class InputView {
         if (!move.equals("U") && !move.equals("D")) {
             throw new IllegalArgumentException("[ERROR] 이동할 다리는 U 또는 D 만 가능합니다.");
         }
+    }
+
+    public int readBridgeSize() {
+        System.out.println("다리의 길이를 입력해주세요.");
+        String strBridgeSize = readLine();
+        validateInputIsNull(strBridgeSize);
+
+        return parseIntBridgeSize(strBridgeSize);
+    }
+
+    public String readMoving() {
+        System.out.println("이동할 칸을 선택해주세요. (위: U, 아래: D)");
+        String move = readLine();
+        validateInputIsNull(move);
+        validateReadMoving(move);
+
+        return move;
     }
 }
