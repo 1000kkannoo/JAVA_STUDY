@@ -1,13 +1,11 @@
 package week4.view;
 
-import java.util.Scanner;
-
 public class InputView {
-    private final Scanner sc = new Scanner(System.in);
 
-    public int readBridgeSize() {
-        System.out.println("다리의 길이를 입력해주세요.");
-        return Integer.parseInt(sc.nextLine());
+    public void validateReadBridgeSizeOver(Integer size) {
+        if (size < 3 || size > 20) {
+            throw new IllegalArgumentException("[ERROR] 다리의 길이는 3 이상 20 이하의 길이로 입력하여야 합니다.");
+        }
     }
 
 }
