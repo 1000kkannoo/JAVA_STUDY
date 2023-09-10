@@ -6,8 +6,7 @@ import week4.view.InputView;
 
 import java.io.ByteArrayInputStream;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
 
 class InputViewTest {
 
@@ -75,7 +74,7 @@ class InputViewTest {
         assertThat(move).isEqualTo("U");
     }
 
-    @DisplayName("")
+    @DisplayName("게임 종료/재진행 여부를 Q나 R이 아닌 다른 문자를 입력한다.")
     @Test
     void validateReadGameCommand() {
         // given
@@ -84,5 +83,19 @@ class InputViewTest {
         assertThatThrownBy(() -> inputView.validateReadGameCommand("A"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 커맨드는 Q 또는 R 만 가능합니다.");
+    }
+
+    @DisplayName("유저가 게임을 재시작한다.")
+    @Test
+    void readGameCommand() {
+        // given
+        String testData = "R";
+        System.setIn(new ByteArrayInputStream(testData.getBytes()));
+
+        // when
+        String command = inputView.readGameCommand();
+
+        // then
+        assertThat(command).isEqualTo("R");
     }
 }
