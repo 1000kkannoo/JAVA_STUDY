@@ -29,4 +29,10 @@ public class InputView {
         validateReadBridgeSizeOver(bridgeSize);
         return bridgeSize;
     }
+
+    public void validateReadMoving(String move) {
+        if (!move.equals("U") && !move.equals("D")) {
+            throw new IllegalArgumentException("[ERROR] 이동할 다리는 U 또는 D 만 가능합니다.");
+        }
+    }
 }
