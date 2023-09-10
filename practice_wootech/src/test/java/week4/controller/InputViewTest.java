@@ -21,5 +21,16 @@ class InputViewTest {
                 .hasMessage("[ERROR] 다리의 길이는 3 이상 20 이하의 길이로 입력하여야 합니다.");
 
     }
-    
+
+    @DisplayName("다리 길이가 Blank 경우 Exception 발생한다.")
+    @Test
+    void validateReadBridgeIsBlank() {
+        // given
+
+        // when // then
+        assertThatThrownBy(() -> inputView.validateReadBridgeIsNull(""))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 다리의 길이를 입력하여야 합니다.");
+    }
+
 }
