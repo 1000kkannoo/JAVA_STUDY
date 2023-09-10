@@ -61,5 +61,17 @@ class InputViewTest {
                 .hasMessage("[ERROR] 이동할 다리는 U 또는 D 만 가능합니다.");
     }
 
+    @DisplayName("유저가 다리를 건너는 방향을 U로 선택한다.")
+    @Test
+    void readMoving() {
+        // given
+        String testData = "U";
+        System.setIn(new ByteArrayInputStream(testData.getBytes()));
 
+        // when
+        String move = inputView.readMoving();
+
+        // then
+        assertThat(move).isEqualTo("U");
+    }
 }
