@@ -4,6 +4,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import week4.view.InputView;
 
+import java.io.ByteArrayInputStream;
+
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class InputViewTest {
@@ -31,6 +34,20 @@ class InputViewTest {
         assertThatThrownBy(() -> inputView.validateReadBridgeIsNull(""))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 다리의 길이를 입력하여야 합니다.");
+    }
+
+    @DisplayName("유저가 다리 길이를 입력한다.")
+    @Test
+    void readBridgeSize() {
+        // given
+        String testData = "7";
+        System.setIn(new ByteArrayInputStream(testData.getBytes()));
+
+        // when
+        int bridgeSize = inputView.readBridgeSize();
+
+        // then
+        assertThat(bridgeSize).isEqualTo(7);
     }
 
 }
