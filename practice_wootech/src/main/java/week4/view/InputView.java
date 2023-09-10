@@ -28,6 +28,12 @@ public class InputView {
         }
     }
 
+    public void validateReadGameCommand(String command) {
+        if (!command.equals("R") && !command.equals("Q")) {
+            throw new IllegalArgumentException("[ERROR] 커맨드는 Q 또는 R 만 가능합니다.");
+        }
+    }
+
     public int readBridgeSize() {
         System.out.println("다리의 길이를 입력해주세요.");
         String strBridgeSize = readLine();
