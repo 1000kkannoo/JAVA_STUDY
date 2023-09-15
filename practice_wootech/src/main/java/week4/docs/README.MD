@@ -13,10 +13,10 @@
 
 ## View
 ### InputView
-- [ ] readBridgeSize() : 사용자에게 다리 길이를 입력받는다.
-- [ ] readMoving() : 사용자에게 이동할 다리를 입력 받는다. (위 : U / 아래 : D)
+- [x] readBridgeSize() : 사용자에게 다리 길이를 입력받는다.
+- [x] readMoving() : 사용자에게 이동할 다리를 입력 받는다. (위 : U / 아래 : D)
   - 위 아래 둘중 하나만 건너야 한다.
-- [ ] readGameCommand() : 게임을 계속 진행할지 여부를 입력받는다 (재시도 : R / 종료 :Q)
+- [x] readGameCommand() : 게임을 계속 진행할지 여부를 입력받는다 (재시도 : R / 종료 :Q)
   - 재시작해도 처음에 만든 다리로 재사용한다
 
 ### OutputView
