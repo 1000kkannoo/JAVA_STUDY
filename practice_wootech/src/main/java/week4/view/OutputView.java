@@ -13,16 +13,20 @@ public class OutputView {
     }
 
     public void printResultMessage(Boolean clear, Integer totalPlay) {
-        String message = "";
+        String message = getResultMessage(clear);
 
+        System.out.printf("게임 성공 여부: %s\n", message);
+        System.out.printf("총 시도한 횟수: %s\n", totalPlay);
+    }
+
+    private static String getResultMessage(Boolean clear) {
+        String message;
         if (clear) {
             message = "성공";
         } else {
             message = "실패";
         }
-
-        System.out.printf("게임 성공 여부: %s\n", message);
-        System.out.printf("총 시도한 횟수: %s\n", totalPlay);
+        return message;
     }
 
 }
