@@ -5,7 +5,7 @@ import java.util.List;
 public class BridgeGame {
 
     private final List<String> gameBridge;
-    private final Integer totalPlay;
+    private Integer totalPlay;
     private Integer totalMove;
 
     public Integer getTotalPlay() {
@@ -27,16 +27,22 @@ public class BridgeGame {
     }
 
     public Boolean move(String selectMove) {
-        String selectBridge = gameBridge.get(totalMove);
+        String selectBridge = gameBridge.get(this.totalMove);
 
         if (selectBridge.equals(selectMove)) {
-            totalMove++;
+            this.totalMove++;
             return true;
         }
 
         return false;
     }
 
-    public void retry() {
+    public Boolean retry(String selectRetry) {
+        if (selectRetry.equals("R")) {
+            this.totalPlay++;
+            return true;
+        } else {
+            return false;
+        }
     }
 }
