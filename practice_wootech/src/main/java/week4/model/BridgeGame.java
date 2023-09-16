@@ -28,18 +28,14 @@ public class BridgeGame {
 
     public Boolean move(String selectMove) {
         String selectBridge = gameBridge.get(this.nextMove);
-
-        if (selectBridge.equals(selectMove)) {
-            this.nextMove++;
-            return true;
-        }
-
-        return false;
+        this.nextMove++;
+        return selectBridge.equals(selectMove);
     }
 
     public Boolean retry(String selectRetry) {
         if (selectRetry.equals("R")) {
             this.totalPlay++;
+            this.nextMove--;
             return true;
         } else {
             return false;
