@@ -25,4 +25,28 @@ class BridgeGameTest {
         assertThat(bridgeGame.getTotalMove()).isEqualTo(2);
     }
 
+    @DisplayName("사용자가 게임을 재시작한다.")
+    @Test
+    void retry() {
+        // given
+
+        // when
+        Boolean isRetry = bridgeGame.retry("R");
+
+        // then
+        assertThat(isRetry).isTrue();
+    }
+
+    @DisplayName("사용자가 게임을 종료한다.")
+    @Test
+    void notRetry() {
+        // given
+
+        // when
+        Boolean isRetry = bridgeGame.retry("Q");
+
+        // then
+        assertThat(isRetry).isFalse();
+    }
+
 }
