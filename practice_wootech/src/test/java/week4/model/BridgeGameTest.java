@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class BridgeGameTest {
 
@@ -22,7 +21,7 @@ class BridgeGameTest {
 
         // then
         assertThat(isSuccess).isTrue();
-        assertThat(bridgeGame.getTotalMove()).isEqualTo(2);
+        assertThat(bridgeGame.getNextMove()).isEqualTo(1);
     }
 
     @DisplayName("사용자가 게임을 재시작한다.")

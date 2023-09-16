@@ -6,7 +6,7 @@ public class BridgeGame {
 
     private final List<String> gameBridge;
     private Integer totalPlay;
-    private Integer totalMove;
+    private Integer nextMove;
 
     public Integer getTotalPlay() {
         return totalPlay;
@@ -16,21 +16,21 @@ public class BridgeGame {
         return gameBridge;
     }
 
-    public Integer getTotalMove() {
-        return totalMove;
+    public Integer getNextMove() {
+        return nextMove;
     }
 
     public BridgeGame(List<String> gameBridge) {
         this.gameBridge = gameBridge;
         this.totalPlay = 0;
-        this.totalMove = 1;
+        this.nextMove = 0;
     }
 
     public Boolean move(String selectMove) {
-        String selectBridge = gameBridge.get(this.totalMove);
+        String selectBridge = gameBridge.get(this.nextMove);
 
         if (selectBridge.equals(selectMove)) {
-            this.totalMove++;
+            this.nextMove++;
             return true;
         }
 
