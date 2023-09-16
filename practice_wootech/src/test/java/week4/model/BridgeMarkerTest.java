@@ -24,6 +24,6 @@ class BridgeMarkerTest {
         // then
         assertThat(bridge)
                 .hasSize(5)
-                .allSatisfy(var -> assertThat(var).isIn("O", "X"));
+                .allSatisfy(var -> assertThat(var).isIn("U", "D"));
     }
 }

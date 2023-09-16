@@ -22,9 +22,9 @@ public class BridgeMarker {
 
     private static void addSuccessBridge(List<String> bridge, int random) {
         if (random == 0) {
-            bridge.add("O");
+            bridge.add("U");
         } else {
-            bridge.add("X");
+            bridge.add("D");
         }
     }
 }
