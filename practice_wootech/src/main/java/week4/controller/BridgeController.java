@@ -1,7 +1,7 @@
 package week4.controller;
 
 import week4.model.BridgeGame;
-import week4.model.BridgeMarker;
+import week4.model.BridgeMaker;
 import week4.model.BridgeRandomNumberGenerator;
 import week4.view.InputView;
 import week4.view.OutputView;
@@ -12,10 +12,10 @@ public class BridgeController {
 
     private final OutputView outputView = new OutputView();
     private final InputView inputView = new InputView();
-    private final BridgeMarker bridgeMarker;
+    private final BridgeMaker bridgeMarker;
 
     public BridgeController(BridgeRandomNumberGenerator bridgeRandomNumberGenerator) {
-        this.bridgeMarker = new BridgeMarker(bridgeRandomNumberGenerator);
+        this.bridgeMarker = new BridgeMaker(bridgeRandomNumberGenerator);
     }
 
     public void startMessagePrint() {

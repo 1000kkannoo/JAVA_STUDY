@@ -3,10 +3,10 @@ package week4.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BridgeMarker {
+public class BridgeMaker {
     private final BridgeNumberGenerator bridgeNumberGenerator;
 
-    public BridgeMarker(BridgeNumberGenerator bridgeNumberGenerator) {
+    public BridgeMaker(BridgeNumberGenerator bridgeNumberGenerator) {
         this.bridgeNumberGenerator = bridgeNumberGenerator;
     }
 
