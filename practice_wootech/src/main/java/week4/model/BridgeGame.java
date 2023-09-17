@@ -22,7 +22,7 @@ public class BridgeGame {
 
     public BridgeGame(List<String> gameBridge) {
         this.gameBridge = gameBridge;
-        this.totalPlay = 0;
+        this.totalPlay = 1;
         this.nextMove = 0;
     }
 
