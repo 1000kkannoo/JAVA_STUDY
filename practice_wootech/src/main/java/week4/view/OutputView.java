@@ -10,7 +10,7 @@ public class OutputView {
     public static final String UP = "U";
 
     public void printStart() {
-        System.out.println("다리 건너기 게임을 시작합니다.");
+        System.out.println("다리 건너기 게임을 시작합니다.\n");
     }
 
     public String printMap(BridgeGame bridgeGame, Boolean isSuccess) {
@@ -20,7 +20,7 @@ public class OutputView {
         appendMapStatus(bridgeGame, isSuccess, upBridge, downBridge);
 
         String map = upBridge.append("]\n").append(downBridge).append("]\n").toString();
-        System.out.print(map);
+        System.out.println(map);
 
         return map;
     }
@@ -69,7 +69,9 @@ public class OutputView {
         }
     }
 
-    public void printResult() {
+    public void printResult(String map) {
+        System.out.println("최종 게임 결과");
+        System.out.println(map);
     }
 
     public void printResultMessage(Boolean clear, Integer totalPlay) {
