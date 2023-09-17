@@ -30,8 +30,7 @@ public class BridgeController {
 
     public void playBridgeGame(BridgeGame bridgeGame) {
         while (true) {
-            String selectMove = inputView.readMoving(); // 이동할 칸을 선택
-            Boolean isSuccess = bridgeGame.move(selectMove); // 이동 후 알맞은 다리인지 여부 확인
+            Boolean isSuccess = bridgeGame.move(inputView.readMoving()); // 이동 후 알맞은 다리인지 여부 확인
             String map = outputView.printMap(bridgeGame, isSuccess); // 현재 자신이 건너온 다리 위치 출력
 
             if (isRestartRequested(bridgeGame, isSuccess, map)) { // 알맞은 다리를 건너지 않았을때 커맨드가 Q 라면 게임 종료
