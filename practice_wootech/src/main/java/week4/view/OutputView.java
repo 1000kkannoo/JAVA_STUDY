@@ -1,12 +1,70 @@
 package week4.view;
 
+import week4.model.BridgeGame;
+
 public class OutputView {
+
+    private final static String SUCCESS_BRIDGE = " O ";
+    private final static String FAIL_BRIDGE = " X ";
+    private final static String SPACE_BRIDGE = "   ";
+    public static final String UP = "U";
 
     public void printStart() {
         System.out.println("다리 건너기 게임을 시작합니다.");
     }
 
-    public void printMap() {
+    public void printMap(BridgeGame bridgeGame, Boolean isSuccess) {
+        StringBuilder upBridge = new StringBuilder().append("[");
+        StringBuilder downBridge = new StringBuilder().append("[");
+
+        appendMapStatus(bridgeGame, isSuccess, upBridge, downBridge);
+
+        System.out.println(upBridge.append("]"));
+        System.out.println(downBridge.append("]"));
+    }
+
+    private static void appendMapStatus(BridgeGame bridgeGame, Boolean isSuccess, StringBuilder upBridge, StringBuilder downBridge) {
+        for (int i = 0; i < bridgeGame.getNextMove(); i++) {
+            String control = bridgeGame.getGameBridge().get(i);
+
+            if (i == bridgeGame.getNextMove() - 1) {  // 마지막 인덱스인 경우 성공여부에 따른 결과 등록
+                appendBridgeBasedOnStatus(isSuccess, upBridge, downBridge, control);
+            } else { // 아닌 경우 전부 O로 등록
+                appendSuccessBridge(upBridge, downBridge, control);
+                upBridge.append("|");
+                downBridge.append("|");
+            }
+        }
+    }
+
+    private static void appendBridgeBasedOnStatus(
+            Boolean isSuccess, StringBuilder upBridge, StringBuilder downBridge, String control
+    ) {
+        if (isSuccess) {
+            appendSuccessBridge(upBridge, downBridge, control);
+        } else {
+            appendFailBridge(upBridge, downBridge, control);
+        }
+    }
+
+    private static void appendFailBridge(StringBuilder upBridge, StringBuilder downBridge, String control) {
+        if (control.equals(UP)) {
+            upBridge.append(SPACE_BRIDGE);
+            downBridge.append(FAIL_BRIDGE);
+        } else {
+            upBridge.append(FAIL_BRIDGE);
+            downBridge.append(SPACE_BRIDGE);
+        }
+    }
+
+    private static void appendSuccessBridge(StringBuilder upBridge, StringBuilder downBridge, String control) {
+        if (control.equals("U")) {
+            upBridge.append(SUCCESS_BRIDGE);
+            downBridge.append(SPACE_BRIDGE);
+        } else {
+            upBridge.append(SPACE_BRIDGE);
+            downBridge.append(SUCCESS_BRIDGE);
+        }
     }
 
     public void printResult() {
