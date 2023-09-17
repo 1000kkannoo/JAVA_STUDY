@@ -13,14 +13,16 @@ public class OutputView {
         System.out.println("다리 건너기 게임을 시작합니다.");
     }
 
-    public void printMap(BridgeGame bridgeGame, Boolean isSuccess) {
+    public String printMap(BridgeGame bridgeGame, Boolean isSuccess) {
         StringBuilder upBridge = new StringBuilder().append("[");
         StringBuilder downBridge = new StringBuilder().append("[");
 
         appendMapStatus(bridgeGame, isSuccess, upBridge, downBridge);
 
-        System.out.println(upBridge.append("]"));
-        System.out.println(downBridge.append("]"));
+        String map = upBridge.append("]\n").append(downBridge).append("]\n").toString();
+        System.out.print(map);
+
+        return map;
     }
 
     private static void appendMapStatus(BridgeGame bridgeGame, Boolean isSuccess, StringBuilder upBridge, StringBuilder downBridge) {

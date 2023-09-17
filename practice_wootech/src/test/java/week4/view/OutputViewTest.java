@@ -39,13 +39,14 @@ class OutputViewTest {
         Boolean move = bridgeGame.move("U");
 
         // when
-        outputView.printMap(bridgeGame, move);
+        String printMap = outputView.printMap(bridgeGame, move);
 
         // then
         String expectedOutput =
                 "[ O |   |   | O ]\n" +
                         "[   | O | O |   ]\n";
         assertEquals(expectedOutput, outContent.toString());
+        assertEquals(printMap, outContent.toString());
     }
 
     @DisplayName("유저가 다리를 건넌 현황을 출력할때 잘못 건넌 경우를 출력한다.")
