@@ -10,7 +10,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class OutputViewTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -44,9 +44,14 @@ class OutputViewTest {
         // then
         String expectedOutput =
                 "[ O |   |   | O ]\n" +
+                        "[   | O | O |   ]\n\n";
+
+        String expectedMap =
+                "[ O |   |   | O ]\n" +
                         "[   | O | O |   ]\n";
-        assertEquals(expectedOutput, outContent.toString());
-        assertEquals(printMap, outContent.toString());
+
+        assertThat(expectedOutput).isEqualTo(outContent.toString());
+        assertThat(printMap).isEqualTo(expectedMap);
     }
 
     @DisplayName("유저가 다리를 건넌 현황을 출력할때 잘못 건넌 경우를 출력한다.")
@@ -65,8 +70,8 @@ class OutputViewTest {
         // then
         String expectedOutput =
                 "[ O |   |   |   ]\n" +
-                        "[   | O | O | X ]\n";
-        assertEquals(expectedOutput, outContent.toString());
+                        "[   | O | O | X ]\n\n";
+        assertThat(expectedOutput).isEqualTo(outContent.toString());
     }
 
     @DisplayName("유저가 다리를 건넌 현황을 출력한다.")
@@ -82,8 +87,8 @@ class OutputViewTest {
         // then
         String expectedOutput =
                 "[ O ]\n" +
-                        "[   ]\n";
-        assertEquals(expectedOutput, outContent.toString());
+                        "[   ]\n\n";
+        assertThat(expectedOutput).isEqualTo(outContent.toString());
     }
 
     @DisplayName("유저가 다리를 건넌 현황을 출력한다.")
@@ -99,7 +104,7 @@ class OutputViewTest {
         // then
         String expectedOutput =
                 "[   ]\n" +
-                        "[ X ]\n";
-        assertEquals(expectedOutput, outContent.toString());
+                        "[ X ]\n\n";
+        assertThat(expectedOutput).isEqualTo(outContent.toString());
     }
 }
