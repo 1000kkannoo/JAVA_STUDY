@@ -14,14 +14,14 @@
  
 ### View
 - inputView
-  - [ ] inputOrder() : 아이템 이름, 수량, 가격, productId 입력
-  - [ ] inputDeleteOrder() : 삭제할 아이템의 productId 입력
-  - [ ] inputUpdateOrder() : 수정할 아이템의 productId와 수량, 가격 입력
+  - [x] inputOrder() : 아이템 이름, 수량, 가격, productId 입력
+  - [x] inputDeleteOrder() : 삭제할 아이템의 productId 입력
+  - [x] inputUpdateOrder() : 수정할 아이템의 productId와 수량, 가격 입력
 
 - outputView
-  - [ ] printOrderProcess() : 사용자가 선택하여 수행할 기능 목록을 출력  
-  - [ ] printOrderList() : 현재 주문한 리스트 조회
-  - [ ] printAllOrderPrice() : 전체 주문 총액 출력
+  - [x] printOrderProcess() : 사용자가 선택하여 수행할 기능 목록을 출력  
+  - [x] printOrderList() : 현재 주문한 리스트 조회
+  - [x] printAllOrderPrice() : 전체 주문 총액 출력
 
 ### Controller
 - [ ] run() : Model, View 중개자 역할
