@@ -20,4 +20,10 @@ public class OutputView {
                 Integer.parseInt(orderArr[1]),
                 Integer.parseInt(orderArr[2]));
     }
+
+    public Long inputDeleteOrder() {
+        Scanner sc = new Scanner(System.in);
+        return Long.parseLong(sc.nextLine());
+    }
+
 }
