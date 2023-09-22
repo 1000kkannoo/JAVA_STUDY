@@ -35,4 +35,9 @@ public class InputView {
                 "quantity", Integer.parseInt(updateOrderArr[1]),
                 "price", Integer.parseInt(updateOrderArr[2]));
     }
+
+    public Integer selectProcess() {
+        Scanner sc = new Scanner(System.in);
+        return Integer.parseInt(sc.nextLine());
+    }
 }
