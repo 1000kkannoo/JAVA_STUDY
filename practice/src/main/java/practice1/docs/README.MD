@@ -24,4 +24,4 @@
   - [x] printAllOrderPrice() : 전체 주문 총액 출력
 
 ### Controller
-- [ ] run() : Model, View 중개자 역할
+- [x] run() : Model, View 중개자 역할

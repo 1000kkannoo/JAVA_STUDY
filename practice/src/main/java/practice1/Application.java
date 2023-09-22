@@ -11,7 +11,11 @@ public class Application {
     static OrderManager orderManager = new OrderManager();
 
     public static void main(String[] args) {
-        OrderController orderController = new OrderController(inputView, outputView, orderManager);
-        orderController.run();
+        try {
+            OrderController orderController = new OrderController(inputView, outputView, orderManager);
+            orderController.run();
+        } finally {
+            inputView.closeScanner();
+        }
     }
 }

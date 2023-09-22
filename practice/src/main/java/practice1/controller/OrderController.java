@@ -93,7 +93,7 @@ public class OrderController {
         return orders.stream()
                 .filter(order -> order.getProductId().equals(pid))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 주문"));
+                .orElseThrow(() -> new IllegalArgumentException("해당 Order는 존재하지 않습니다."));
     }
 
 }
