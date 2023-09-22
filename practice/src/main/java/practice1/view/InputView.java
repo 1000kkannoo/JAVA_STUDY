@@ -2,11 +2,10 @@ package practice1.view;
 
 import practice1.model.Order;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class OutputView {
+public class InputView {
     public void printOrderStart() {
         System.out.println("===== 안녕하세요! 주문을 시작합니다 =====");
     }
