@@ -70,4 +70,24 @@ class OrderManagerTest {
                 .hasMessage("해당 Order는 존재하지 않습니다.");
 
     }
+
+    @DisplayName("주문 목록의 총 금액을 구한다.")
+    @Test
+    void readAllOrderPrice() {
+        // given
+        OrderManager orderManager = new OrderManager();
+        Order order1 = new Order(1L, "이펙티브자바1", 1, 34000);
+        Order order2 = new Order(5L, "이펙티브자바2", 1, 32000);
+        Order order3 = new Order(15L, "이펙티브자바3", 1, 33000);
+
+        orderManager.addOrder(order1);
+        orderManager.addOrder(order2);
+        orderManager.addOrder(order3);
+
+        // when
+        Integer sumPrice = orderManager.readAllOrderPrice();
+
+        // then
+        assertThat(sumPrice).isEqualTo(99000);
+    }
 }
