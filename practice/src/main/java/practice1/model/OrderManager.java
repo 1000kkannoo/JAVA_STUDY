@@ -15,6 +15,12 @@ public class OrderManager {
         orders.remove(findOrder);
     }
 
+    public Integer readAllOrderPrice() {
+        return orders.stream()
+                .mapToInt(Order::getPrice)
+                .sum();
+    }
+
     private Order findOrderByProductId(Long productId) {
         return orders.stream()
                 .filter(order -> order.getProductId().equals(productId))
