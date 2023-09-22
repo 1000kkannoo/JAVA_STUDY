@@ -2,10 +2,10 @@
 
 ### Model
 - OrderManager 클래스 구현
-  - [ ] field : List< Order > 주문 목록
-  - [ ] deleteOrder() : productId를 기준으로 해당 List에서 제거
-  - [ ] readAllOrderPrice() : 전체 주문 총액 조회
-  - [ ] addOrder() : Order의 List에 새로운 Order 객체를 추가
+  - [x] field : List< Order > 주문 목록
+  - [x] deleteOrder() : productId를 기준으로 해당 List에서 제거
+  - [x] readAllOrderPrice() : 전체 주문 총액 조회
+  - [x] addOrder() : Order의 List에 새로운 Order 객체를 추가
   
 - Order 클래스 구현
   - [x] field : 아이템 이름, 수량, 가격, productId
