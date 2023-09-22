@@ -6,9 +6,6 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class InputView {
-    public void printOrderStart() {
-        System.out.println("===== 안녕하세요! 주문을 시작합니다 =====");
-    }
 
     public Order inputOrder() {
         Scanner sc = new Scanner(System.in);

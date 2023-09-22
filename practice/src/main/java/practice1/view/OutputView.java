@@ -26,4 +26,8 @@ public class OutputView {
     public void printAllOrderPrice(Integer sumPrice) {
         System.out.printf("주문 총 금액 : %s\n", sumPrice);
     }
+
+    public void printOrderStart() {
+        System.out.println("===== 안녕하세요! 주문을 시작합니다 =====");
+    }
 }
