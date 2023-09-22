@@ -2,6 +2,7 @@ package practice1.view;
 
 import practice1.model.Order;
 
+import java.util.Map;
 import java.util.Scanner;
 
 public class OutputView {
@@ -22,6 +23,7 @@ public class OutputView {
     }
 
     public Long inputDeleteOrder() {
+        System.out.println("주문목록에 삭제할 상품의 PID를 입력해주세요.");
         Scanner sc = new Scanner(System.in);
         return Long.parseLong(sc.nextLine());
     }
