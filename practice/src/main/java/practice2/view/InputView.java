@@ -28,4 +28,9 @@ public class InputView {
         System.out.println("검색할 음식의 이름을 입력해주세요");
         return sc.nextLine();
     }
+
+    public String inputSearchCategory() {
+        System.out.println("검색할 카테고리를 입력해주세요");
+        return sc.nextLine();
+    }
 }
