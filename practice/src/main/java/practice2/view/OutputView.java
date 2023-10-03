@@ -21,4 +21,13 @@ public class OutputView {
         }
         System.out.println(sb);
     }
+
+    public void printDetailMenu(Menu menu) {
+        System.out.print("== 메뉴 정보 == \n");
+        System.out.printf("메뉴 번호 : %s\n", menu.getMenuId());
+        System.out.printf("메뉴 카테고리 : %s\n", menu.getCategory());
+        System.out.printf("메뉴 이름 : %s\n", menu.getName());
+        System.out.printf("메뉴 가격 : %s\n", menu.getPrice());
+        System.out.printf("메뉴 재고 : %s\n", menu.getQuantity());
+    }
 }
