@@ -45,8 +45,8 @@ Input
 - [ ] inputSearchCategory() - 검색할 카테고리 입력
 
 Output
-- [ ] printStartMessage() - 애플리케이션 시작 메시지 출력
-- [ ] printSelectList() - 수행할 액션 리스트 출력
+- [x] printStartMessage() - 애플리케이션 시작 메시지 출력
+- [x] printSelectList() - 수행할 액션 리스트 출력
 - [ ] printMenuList() - 메뉴 리스트 출력
 - [ ] printDetailMenu() - 메뉴 세부 출력
 - [ ] printMyOrderList() - 내 주문 내역 리스트 출력
