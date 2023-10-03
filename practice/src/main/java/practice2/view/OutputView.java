@@ -1,6 +1,7 @@
 package practice2.view;
 
 import practice2.model.Menu;
+import practice2.model.Order;
 
 import java.util.List;
 
@@ -29,5 +30,13 @@ public class OutputView {
         System.out.printf("메뉴 이름 : %s\n", menu.getName());
         System.out.printf("메뉴 가격 : %s\n", menu.getPrice());
         System.out.printf("메뉴 재고 : %s\n", menu.getQuantity());
+    }
+
+    public void printMyOrderList(List<Order> orderList) {
+        for (Order order : orderList) {
+            System.out.printf("  === %s번 주문 ===  \n", order.getOrderId());
+            System.out.printf("주문 날짜 : %s\n", order.getCreateAt());
+            System.out.printf("주문 합계 : %s\n", order.getSumPrice());
+        }
     }
 }
