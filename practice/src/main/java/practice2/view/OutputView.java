@@ -39,4 +39,9 @@ public class OutputView {
             System.out.printf("주문 합계 : %s\n", order.getSumPrice());
         }
     }
+
+    public void printDetailOrder(Order order) {
+        System.out.printf("%s번 주문\n", order.getOrderId());
+        System.out.println(order.getMenu());
+    }
 }
