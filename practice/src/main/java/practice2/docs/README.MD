@@ -37,19 +37,19 @@
 
 ### View
 Input
-- [ ] inputSelectAction() - 수행할 액션 넘버 입력
-- [ ] inputSelectMenuNumber() - 세부 조회할 메뉴 번호 입력
-- [ ] inputOrderNumber() - 주문할 음식의 번호 입력
-- [ ] inputReadOrderNumber() - 상세 조회할 주문 번호 입력
-- [ ] inputSearchMenuName() - 검색할 음식 이름 입력
-- [ ] inputSearchCategory() - 검색할 카테고리 입력
+- [x] inputSelectAction() - 수행할 액션 넘버 입력
+- [x] inputSelectMenuNumber() - 세부 조회할 메뉴 번호 입력
+- [x] inputOrderNumber() - 주문할 음식의 번호 입력
+- [x] inputReadOrderNumber() - 상세 조회할 주문 번호 입력
+- [x] inputSearchMenuName() - 검색할 음식 이름 입력
+- [x] inputSearchCategory() - 검색할 카테고리 입력
 
 Output
 - [x] printStartMessage() - 애플리케이션 시작 메시지 출력
 - [x] printSelectList() - 수행할 액션 리스트 출력
-- [ ] printMenuList() - 메뉴 리스트 출력
-- [ ] printDetailMenu() - 메뉴 세부 출력
-- [ ] printMyOrderList() - 내 주문 내역 리스트 출력
-- [ ] printDetailOrder() - 내 주문 내역 상세 출력
+- [x] printMenuList() - 메뉴 리스트 출력
+- [x] printDetailMenu() - 메뉴 세부 출력
+- [x] printMyOrderList() - 내 주문 내역 리스트 출력
+- [x] printDetailOrder() - 내 주문 내역 상세 출력
 
 ### Controller
