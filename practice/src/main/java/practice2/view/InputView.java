@@ -23,4 +23,9 @@ public class InputView {
         System.out.println("상세 조회할 주문 번호를 입력해주세요");
         return Integer.parseInt(sc.nextLine());
     }
+
+    public String inputSearchMenuName() {
+        System.out.println("검색할 음식의 이름을 입력해주세요");
+        return sc.nextLine();
+    }
 }
