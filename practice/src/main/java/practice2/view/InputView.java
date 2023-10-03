@@ -8,4 +8,9 @@ public class InputView {
     public Integer inputSelectAction() {
         return Integer.parseInt(sc.nextLine());
     }
+
+    public Integer inputSelectMenuNumber() {
+        System.out.println("상세 조회할 메뉴 번호를 입력해주세요");
+        return Integer.parseInt(sc.nextLine());
+    }
 }
