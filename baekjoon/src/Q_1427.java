@@ -1,16 +1,18 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.Comparator;
 
 public class Q_1427 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws Exception {
         StringBuilder sb = new StringBuilder();
-        String num = sc.next();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] split = br.readLine().split("");
 
-        char[] chars = num.toCharArray();
-        Arrays.sort(chars);
-        for (int i = chars.length - 1; i >= 0; i--) sb.append(chars[i]);
+        Arrays.stream(split)
+                .sorted(Comparator.comparingInt(Integer::parseInt))
+                .sorted(Comparator.reverseOrder())
+                .forEach(sb::append);
 
         System.out.println(sb);
     }
