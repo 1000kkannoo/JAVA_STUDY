@@ -21,13 +21,17 @@ public class Menu {
         return new Menu(menuId, name, price, category, quantity);
     }
 
-    public Menu readDetailMenu(List<Menu> menus, Long menuId) {
+    public static Menu readDetailMenu(List<Menu> menus, Long menuId) {
         for (Menu menu : menus) {
             if (menu.getMenuId().equals(menuId)) {
                 return menu;
             }
         }
         throw new IllegalArgumentException("해당 메뉴를 찾을 수 없습니다.");
+    }
+
+    public void minusQuantity(int minus) {
+        this.quantity -= minus;
     }
 
     public Long getMenuId() {
