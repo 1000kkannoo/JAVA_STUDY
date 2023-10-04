@@ -18,6 +18,15 @@ public class Order {
         this.count = count;
     }
 
+    public static Order readDetailOrder(List<Order> orders, Long orderId) {
+        for (Order order : orders) {
+            if (order.getOrderId().equals(orderId)) {
+                return order;
+            }
+        }
+        throw new IllegalArgumentException("존재하지 않는 order 입니다.");
+    }
+
     public static Order saveOrder(Long orderId, Menu menu, Integer count) {
         menu.minusQuantity(count);
         return new Order(orderId, menu.getPrice() * count, menu, count);
