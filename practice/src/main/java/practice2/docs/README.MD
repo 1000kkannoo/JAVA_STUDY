@@ -27,10 +27,10 @@
 - Menu
 - Order
 ---
-- [ ] readMenuList() - 메뉴 리스트 조회
-- [ ] readDetailMenu() - 메뉴 세부 조회
-- [ ] saveOrder() - 음식 주문 및 해당 음식 재고 수량 감소
-- [ ] readMyOrderList() - 내 주문 내역 리스트 조회
+- [x] readMenuList() - 메뉴 리스트 조회 -> getMenus()로 대체
+- [x] readDetailMenu() - 메뉴 세부 조회
+- [x] saveOrder() - 음식 주문 및 해당 음식 재고 수량 감소
+- [ ] readMyOrderList() - 내 주문 내역 리스트 조회 - 보류
 - [ ] readDetailOrder() - 내 주문 내역 상세 조회 
 - [ ] searchMenuName() - 음식 이름 검색 조회
 - [ ] searchCategory() - 카테고리 음식 조회
