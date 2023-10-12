@@ -51,4 +51,10 @@ public class BirthDay {
     public void printThis() {
         System.out.println(this);
     }
+
+    public void printThisMessage() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(year).append("/").append(month).append("/").append(day);
+        System.out.println(sb);
+    }
 }

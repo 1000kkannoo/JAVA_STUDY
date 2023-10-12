@@ -10,6 +10,7 @@ public class BookArrayTest {
         library[2] = new Book("태백산맥3", " 조정래");
         library[3] = new Book("태백산맥4", " 조정래");
         library[4] = new Book("태백산맥5", " 조정래");
+        library[4] = new Book("태백산맥6", " 조정래");
 
         for(Book book : library) {
             book.showBookInfo();

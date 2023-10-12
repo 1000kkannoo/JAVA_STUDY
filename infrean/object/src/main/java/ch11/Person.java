@@ -1,28 +1,43 @@
 package ch11;
 
-public class Person {
-
+class Persons {
     private String name;
     private int age;
 
-    public Person() {
+    public Persons() {
         this("이름없음", 1);
     }
 
-    public Person(String name, int age) {
+    private Persons(String name, int age) {
         this.name = name;
         this.age = age;
     }
 
-    public Person getPerson() {
+    public static Persons create(String name, int age) {
+        return new Persons(name, age);
+    }
+
+    public Persons getPerson() {
         return this; // address 를 가리킴
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+}
+
+public class Person {
+
     public static void main(String[] args) {
-        Person person = new Person();
-        Person person1 = new Person("잭 그릴리쉬",27);
-        System.out.println(person1.name);
-        System.out.println(person1.age);
+        Persons person = new Persons();
+        Persons person1 = Persons.create("잭 그릴리쉬", 27);
+        System.out.println(person1.getName());
+        System.out.println(person1.getAge());
+        System.out.println(person.getName());
 
         System.out.println(person.getPerson());
         System.out.println(person1.getPerson());
