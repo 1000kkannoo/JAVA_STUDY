@@ -8,9 +8,13 @@ class Book implements Comparable<Book> {
     String name;
     int sales;
 
-    public Book(String name, int sales) {
+    private Book(String name, int sales) {
         this.name = name;
         this.sales = sales;
+    }
+
+    public static Book create(String name, int sales) {
+        return new Book(name, sales);
     }
 
     @Override
@@ -35,7 +39,7 @@ public class Q_1302 {
         ArrayList<Book> arr = new ArrayList<>();
         for (String name : map.keySet()) {
             int value = map.get(name);
-            arr.add(new Book(name, value));
+            arr.add(Book.create(name, value));
         }
 
         Collections.sort(arr);
