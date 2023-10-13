@@ -18,7 +18,7 @@ public class Q_14912 {
                 }
             }
         }
-        
+
         System.out.println(sum);
     }
 }
