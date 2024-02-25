@@ -13,4 +13,5 @@ public class 세로_읽기 {
         }
 
         return sb.toString();
+    }
 }
