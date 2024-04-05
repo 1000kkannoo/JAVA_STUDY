@@ -12,16 +12,9 @@ public class 유효한_팰린드롬 {
     }
 
     private static String solution(String s) {
-        StringBuilder sb = new StringBuilder();
-        char[] charArray = s.toCharArray();
-        for (char c : charArray) {
-            if (Character.isAlphabetic(c)) {
-                sb.append(Character.toLowerCase(c));
-            }
-        }
 
-        String string = sb.toString();
-        String reverseStr = sb.reverse().toString();
+        String string = s.toLowerCase().replaceAll("[^a-z]","");
+        String reverseStr = new StringBuilder(string).reverse().toString();
 
         return (string.equals(reverseStr) ? "YES" : "NO");
     }
