@@ -1,10 +1,10 @@
-package ch4_map;
+package ch5_Stack_Queue;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Stack;
 
-public class 올바른_괄호 {
+public class 괄호문자제거 {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String str = br.readLine();
@@ -13,19 +13,19 @@ public class 올바른_괄호 {
 
     private static String solution(String str) {
         Stack<Character> stack = new Stack<>();
-
+        StringBuilder sb = new StringBuilder();
         for (char c : str.toCharArray()) {
             if (c == '(') {
                 stack.push(c);
+            } else if (c == ')') {
+                stack.pop();
             } else {
                 if (stack.isEmpty()) {
-                    return "NO";
-                } else {
-                    stack.pop();
+                    sb.append(c);
                 }
             }
         }
 
-        return "YES";
+        return sb.toString();
     }
 }
