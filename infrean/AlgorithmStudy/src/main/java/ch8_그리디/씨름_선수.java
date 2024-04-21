@@ -1,4 +1,4 @@
-package ch7_DFS_BFS;
+package ch8_그리디;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
