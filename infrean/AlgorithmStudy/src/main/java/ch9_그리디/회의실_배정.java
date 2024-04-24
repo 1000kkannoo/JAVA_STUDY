@@ -1,4 +1,4 @@
-package ch8_그리디;
+package ch9_그리디;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
